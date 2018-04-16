@@ -1,0 +1,30 @@
+<div class="table-wrapper">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tblModels" class="table display responsive nowrap">
+            <thead>
+              <tr>
+                <th>Model Name</th>
+                <th>Model Type</th>
+                <th>Algorithm</th>
+                <th>Data Source</th>
+                <th>Accuracy</th>
+                <th>View Results</th>
+              </tr>
+              
+            </thead>
+            <tbody>
+                <tr *ngFor="let model of models">
+                  <td><a href="javascript:void(0)" (click)="showUserInfo(model.id)">{{model.name}}</a></td>
+                  <td>{{model.type}} </td>
+                  <td>{{model.algorithm}}</td>
+                  <td>{{model.dataSource}}</td>
+                  <td>{{model.accuracy}}</td>
+                  <td>
+                      <a href="#" class="btn btn-outline-primary btn-icon">
+                          <div>
+                              <i class="fa fa-eye"></i></div></a>
+                </td>
+                </tr>
+            </tbody>
+          </table>
+
+    </div>

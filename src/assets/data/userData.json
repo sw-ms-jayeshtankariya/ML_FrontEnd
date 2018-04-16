@@ -1,0 +1,41 @@
+[{
+	"id": "1",
+	"firstName": "Jayesh",
+	"lastName": "Takariya",
+	"email": "jt@gmail.com",
+	"contactNo": "6308025127",
+	"role": "Employee",
+	"status": "Active"
+},{
+		"id": "2",
+	"firstName": "Amit",
+	"lastName": "Patel",
+	"email": "ap@gmail.com",
+	"contactNo": "6308025127",
+	"role": "Data Scientist",
+	"status": "Active"
+},{
+		"id": "3",
+	"firstName": "Amit",
+	"lastName": "Sheth",
+	"email": "as@gmail.com",
+	"contactNo": "6308025127",
+	"role": "Data Scientist",
+	"status": "Inactive"
+},{
+	"id": "4",
+	"firstName": "Dhaval",
+	"lastName": "Barot",
+	"email": "db@gmail.com",
+	"contactNo": "6308025127",
+	"role": "Employee",
+	"status": "Active"
+},{
+	"id": "5",
+	"firstName": "Kaushik",
+	"lastName": "Chauhan",
+	"email": "kc@gmail.com",
+	"contactNo": "6308025127",
+	"role": "Employee",
+	"status": "Active"
+}]

@@ -1,0 +1,57 @@
+      <h1 mat-dialog-title>SALES</h1>
+<div mat-dialog-content>
+        <mat-tab-group (selectedTabChange)="onTabChange($event)">
+                <mat-tab label="Statistics">
+                      <!-- <pre>Content: <br>{{data.sales_info | json}}</pre> -->
+                    <div class="row-fluid">
+                        <div class="col-md-12">
+                                <div class="row">
+                                        <div class="col-md-4">Mean</div>
+                                        <div class="col-md-8">: {{data.sales_info.mean}}</div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Median</div>
+                                            <div class="col-md-8">: {{data.sales_info.median}}</div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Min</div>
+                                            <div class="col-md-8">: {{data.sales_info.min}}</div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Max</div>
+                                            <div class="col-md-8">: {{data.sales_info.max}}</div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Standard Deviation</div>
+                                            <div class="col-md-8">: {{data.sales_info.std_deviation}}</div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Unique Value</div>
+                                            <div class="col-md-8">: {{data.sales_info.unique_value}}</div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-md-4">Missing Value</div>
+                                            <div class="col-md-8">: {{data.sales_info.missing_value}}</div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-4">Feature Type</div>
+                                                <div class="col-md-8">: {{data.sales_info.feature_type}}</div>
+                                            </div>
+                        </div>
+                    </div>
+                        
+                </mat-tab>
+                <mat-tab label="Graph">
+                    <div class="row-fluid">
+                        <div class="col-md-12">
+                                <canvas id="myChart" width="900" height="500"></canvas>
+                        </div>
+                    </div>
+                    
+                </mat-tab>
+              </mat-tab-group>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

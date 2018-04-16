@@ -1,0 +1,73 @@
+[{
+	"var": "1",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "2",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "3",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"jayesh",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "4",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+}]
