@@ -90,11 +90,10 @@ export class DataPreparationComponent implements OnInit {
   constructor(private _fb: FormBuilder, private http: Http,
     public dialog: MatDialog, private titleService: Title) {
     this.dataConnectionForm = _fb.group({
-      connectionType: this.CONNECTION_TYPE.FTP,
+      connectionType: this._fb.control(this.CONNECTION_TYPE.FTP, Validators.required),
       ftp: this._fb.group(this.initFTPConnection()),
       database: this._fb.group(this.initDatabaseConnection())
     });
-
     this.setTitle("Data Preparation")
   }
 
@@ -152,10 +151,10 @@ export class DataPreparationComponent implements OnInit {
       }
 
     });
-    this.setConnectionType(this.CONNECTION_TYPE.FTP);
   }
-  setConnectionType(type: string) {
+  public setConnectionType(type: string) {
     // update payment method type value
+    debugger;
     const ctrl: FormControl = (<any>this.dataConnectionForm).controls.connectionType;
     ctrl.setValue(type);
   }

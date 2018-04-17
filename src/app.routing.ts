@@ -10,7 +10,6 @@ import {NotificationsComponent }from './app/notifications/notifications.componen
 import {SettingsComponent }from './app/settings/settings.component'; 
 import {ForgetPasswordComponent }from './forgetpassword/forgetpassword.component'; 
 import {SignUpComponent }from './signup/signup.component'; 
-import { DataConnectionComponent } from './app/data-preparation/data-connection/data.connection.component';
 import { ModuleWithProviders } from "@angular/core";
 import { SaveUserComponent } from './app/users/user.save.component';
 export const routes:Routes = [ 
@@ -51,12 +50,6 @@ export const routes:Routes = [
                         {
                             path:'datapreparation', 
                             component:DataPreparationComponent,
-                            children:[
-                                {
-                                    path:'dataconnection', 
-                                    component:DataConnectionComponent
-                                }
-                            ], 
                             data: {
                                 breadcrumb:'Data Preparation'
                             }

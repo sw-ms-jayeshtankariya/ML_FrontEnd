@@ -7,16 +7,17 @@
                 <div class="col-md-12">
                     <form [formGroup]="dataConnectionForm" (ngSubmit)="dataConnectionForm.valid && submitRegistration(dataConnectionForm.value)"
                         novalidate>
+                        <!-- <pre>Content: <br>{{dataConnectionForm.value | json}}</pre> -->
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <p>Connection Type</p>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="ftp" [(ngModel)]="connectionType" formControlName="connectionType" name="connectionType" id="rbtnFTP"
+                                    <input type="radio" value="ftp" formControlName="connectionType" name="connectionType" id="rbtnFTP"
                                         class="custom-control-input">
                                     <label class="custom-control-label" for="rbtnFTP">FTP</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="database" formControlName="connectionType" [(ngModel)]="connectionType" name="connectionType"
+                                    <input type="radio" value="database" formControlName="connectionType" name="connectionType"
                                         id="rbtnDatabase" class="custom-control-input">
                                     <label class="custom-control-label" for="rbtnDatabase">Database</label>
                                 </div>
@@ -30,7 +31,7 @@
                                     </label>
                                     <input id="connectionname" formControlName="connectionName" class="form-control" name="firstname" placeholder="Enter connection name"
                                         type="text" required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.connectionName.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.connectionName.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -43,7 +44,7 @@
                                     </label>
                                     <input id="datasource" class="form-control" name="lastname" placeholder="Enter datasource" formControlName="dataSource" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.dataSource.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.dataSource.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -58,7 +59,7 @@
                                     </label>
                                     <input id="host" class="form-control" name="lastname" placeholder="Enter Host Address" formControlName="host" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.host.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.host.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -70,7 +71,7 @@
                                         <span class="tx-danger">*</span>
                                     </label>
                                     <input id="port" class="form-control" name="lastname" placeholder="Enter Port No" formControlName="port" type="text" required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.port.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.port.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -85,7 +86,7 @@
                                     </label>
                                     <input id="username" class="form-control" name="lastname" formControlName="userName" placeholder="Enter Username" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.userName.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.userName.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -98,7 +99,7 @@
                                     </label>
                                     <input id="password" class="form-control" name="lastname" formControlName="passWord" placeholder="Enter Password" type="password"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.passWord.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.passWord.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -107,12 +108,12 @@
                         </div>
                         <div class="row" *ngIf="dataConnectionForm.controls.connectionType.value === CONNECTION_TYPE.FTP">
                             <div class="col-md-6">
-                                <div [ngClass]="{'form-group':true,'has-error':!dataConnectionForm.controls.ftp.controls.file.valid}" formGroupName="ftp">
+                                <div [ngClass]="{'form-group':true,'has-error':dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.file.valid}" formGroupName="ftp">
                                     <label class="form-control-label">File Path:
                                         <span class="tx-danger">*</span>
                                     </label>
                                     <input id="filepath" [ngClass]="{'form-control':true}" formControlName="file" placeholder="Select File" type="file" required>
-                                    <small *ngIf="!dataConnectionForm.controls.ftp.controls.file.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.file.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -130,7 +131,7 @@
                                     </label>
                                     <input id="connectionname" formControlName="connectionName" class="form-control" name="firstname" placeholder="Enter connection name"
                                         type="text" required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.connectionName.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.connectionName.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -143,7 +144,7 @@
                                     </label>
                                     <input id="datasource" class="form-control" name="lastname" formControlName="dataSource" placeholder="Enter datasource" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.dataSource.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.dataSource.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -158,7 +159,7 @@
                                     </label>
                                     <input id="databasetype" formControlName="databaseType" class="form-control" name="databasetype" placeholder="Enter Database Type"
                                         type="text" required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.databaseType.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.databaseType.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -170,7 +171,7 @@
                                         <span class="tx-danger">*</span>
                                     </label>
                                     <input id="host" class="form-control" name="host" placeholder="Enter Host Address" type="text" required formControlName="host">
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.host.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.host.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -185,7 +186,7 @@
                                     </label>
                                     <input id="port" formControlName="port" class="form-control" name="port" placeholder="Enter connection name" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.port.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.port.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -198,7 +199,7 @@
                                     </label>
                                     <input id="databaseName" class="form-control" name="databaseName" formControlName="databaseName" placeholder="Enter datasource"
                                         type="text" required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.databaseName.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.databaseName.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -213,7 +214,7 @@
                                     </label>
                                     <input id="username" formControlName="userName" class="form-control" name="firstname" placeholder="Enter username" type="text"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.userName.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.userName.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -226,7 +227,7 @@
                                     </label>
                                     <input id="password" class="form-control" name="password" formControlName="passWord" placeholder="Enter password" type="password"
                                         required>
-                                    <small *ngIf="!dataConnectionForm.controls.database.controls.passWord.valid" class="text-danger">
+                                    <small *ngIf="dataConnectionForm.dirty && !dataConnectionForm.controls.database.controls.passWord.valid" class="text-danger">
                                         Required.
                                     </small>
                                 </div>
@@ -234,7 +235,7 @@
                             </div>
                         </div>
                     </form>
-                    <!-- <pre>Content: <br>{{dataConnectionForm.value | json}}</pre> -->
+                    
                 </div>
             </div>
             <div class="row">

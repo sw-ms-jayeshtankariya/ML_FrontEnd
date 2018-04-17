@@ -27,7 +27,6 @@ import { HttpModule } from '@angular/http';
 import {MatTabsModule,MatSidenavModule,MatCheckboxModule,MatDialogModule,
   MatFormFieldModule, MatButtonModule, MatCard, MatCardModule,MatStepperModule,MatToolbarModule, MatSelectModule} from '@angular/material';
 import { SalesInformationComponent } from './data-preparation/salesinfo.component';
-import { DataConnectionComponent } from './data-preparation/data-connection/data.connection.component';
 import { SaveUserComponent } from './users/user.save.component';
 
 @NgModule({
@@ -50,7 +49,6 @@ import { SaveUserComponent } from './users/user.save.component';
     SettingsComponent,
     UsersComponent,
     ModelsComponent,
-    DataConnectionComponent,
     SaveUserComponent
   ],
   imports: [
