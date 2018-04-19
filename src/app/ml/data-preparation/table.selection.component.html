@@ -1,0 +1,30 @@
+<div mat-dialog-title>
+    SELECT TABLE
+    <i (click)="onCancelClick()" class="fa fa-times-circle" aria-hidden="true" style="cursor:pointer; float:right; margin-top: 5px; width: 20px"></i>
+</div>
+
+<div mat-dialog-content>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tbltblList" class="table table-sm responsive nowrap table-bordered">
+        <thead>
+            <tr>
+                <th>Table Name</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let tbl of data">
+                <td class="col-sm-10">{{tbl.name}}</td>
+                <td class="col-sm-2">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input [(ngModel)]="selectedTable" type="radio" value="{{tbl.name}}" name="tblName" id="{{'rbtn' + tbl.name}}" class="custom-control-input">
+                        <label class="custom-control-label" for="{{'rbtn' + tbl.name}}">&nbsp;</label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>      
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onOKClick()" cdkFocusInitial>Ok</button>
+</div>

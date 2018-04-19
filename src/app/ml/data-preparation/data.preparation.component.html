@@ -1,6 +1,7 @@
-<br><br>
+<br>
+<br>
 <div class="mg-t-5">
-    <mat-horizontal-stepper [linear]="true">
+    <mat-horizontal-stepper #datapreparationstepper [linear]="true">
         <mat-step label="Data Preparation">
             <!-- <router-outlet></router-outlet>   -->
             <div class="row-fluid">
@@ -12,13 +13,11 @@
                             <div class="form-group col-md-4">
                                 <p>Connection Type</p>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="ftp" formControlName="connectionType" name="connectionType" id="rbtnFTP"
-                                        class="custom-control-input">
+                                    <input type="radio" value="ftp" formControlName="connectionType" name="connectionType" id="rbtnFTP" class="custom-control-input">
                                     <label class="custom-control-label" for="rbtnFTP">FTP</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="database" formControlName="connectionType" name="connectionType"
-                                        id="rbtnDatabase" class="custom-control-input">
+                                    <input type="radio" value="database" formControlName="connectionType" name="connectionType" id="rbtnDatabase" class="custom-control-input">
                                     <label class="custom-control-label" for="rbtnDatabase">Database</label>
                                 </div>
                             </div>
@@ -108,7 +107,8 @@
                         </div>
                         <div class="row" *ngIf="dataConnectionForm.controls.connectionType.value === CONNECTION_TYPE.FTP">
                             <div class="col-md-6">
-                                <div [ngClass]="{'form-group':true,'has-error':dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.file.valid}" formGroupName="ftp">
+                                <div [ngClass]="{'form-group':true,'has-error':dataConnectionForm.dirty && !dataConnectionForm.controls.ftp.controls.file.valid}"
+                                    formGroupName="ftp">
                                     <label class="form-control-label">File Path:
                                         <span class="tx-danger">*</span>
                                     </label>
@@ -235,7 +235,7 @@
                             </div>
                         </div>
                     </form>
-                    
+
                 </div>
             </div>
             <div class="row">
@@ -243,7 +243,7 @@
                     <button class="btn btn-outline-primary btn-block mg-b-10">Test Connection</button>
                 </div>
                 <div class="col-md-2">
-                    <button matStepperNext type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
+                    <button type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
                 </div>
             </div>
         </mat-step>
@@ -359,7 +359,7 @@
                                 </button>
                             </p>
                             <div class="table-wrapper">
-                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tblReviewData" class="table display responsive nowrap">
+                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tblReviewData" class="table table-sm responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>Var</th>

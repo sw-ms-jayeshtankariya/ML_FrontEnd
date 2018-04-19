@@ -1,6 +1,6 @@
 import {Component }from '@angular/core'; 
 import { Title } from '@angular/platform-browser';
-import { slideInOutAnimation } from '../_animations/slide-in-out.animations';
+import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 
 @Component( { 
 templateUrl:'./settings.component.html', 

@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Model } from '../_models/model';
+import { Model } from '../../_models/model';
 import { Subject } from 'rxjs';
 import { Http, Response } from '@angular/http';
 import { Title } from '@angular/platform-browser';
-import { fadeInAnimation } from '../_animations/fade-in.animation';
+import { fadeInAnimation } from '../../_animations/fade-in.animation';
 
 @Component({
   templateUrl: './models.component.html',

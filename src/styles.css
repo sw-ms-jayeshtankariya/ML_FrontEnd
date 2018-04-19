@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-login{ background: url(assets/img/login-bg.jpg) no-repeat center top; background-size: cover;}
-.signin-box {width: 575px; padding: 80px 90px;}
+.signin-wrapper{ background: url('assets/img/login-bg.jpg') no-repeat center top; background-size: cover;}
+.signin-box {position: absolute; width: 500px; padding: 50px 60px;}
 .btn-signin{ background: #2196f3; border-radius:25px; }
 .signin-box .sign-title {font-size: 17px; margin-bottom:50px;margin-top: 40px; font-weight:500;}
 .signin-box .sign-title:after{ content:""; background:#1474e2; height:2px; width:30px; display:block; margin-top:7px;}

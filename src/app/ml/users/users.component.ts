@@ -2,7 +2,7 @@ import {Component, ViewChild, OnInit }from '@angular/core';
 import { Subject } from 'rxjs';
 import 'rxjs/Rx';
 import { Http,Response } from '@angular/http';
-import { User } from '../_models/user';
+import { User } from '../../_models/user';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 

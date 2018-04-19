@@ -2,23 +2,26 @@ import * as $ from 'jquery';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
-import { NgbTabset, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
-import { TableData } from '../_models/tabledata';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatStepper } from '@angular/material';
 import { SalesInformationComponent } from './salesinfo.component';
 import { Title } from '@angular/platform-browser';
-import { slideInOutAnimation } from '../_animations/slide-in-out.animations';
+import { TableSelectionComponent } from './table.selection.component';
+import { TableData } from '../../_models/tabledata';
 
 @Component({
   templateUrl: './data.preparation.component.html',
   styleUrls: ['./data.preparation.component.css']
 })
 export class DataPreparationComponent implements OnInit {
+  selectedTable:string;
   tableData: TableData[] = [];
   events = [];
+
+  @ViewChild('datapreparationstepper') private myStepper: MatStepper;
+
   @ViewChild('tblReviewData')
   private tblReviewData: DataTables.DataTables;
   dtOptions: DataTables.Settings = {};
@@ -43,7 +46,23 @@ export class DataPreparationComponent implements OnInit {
   }
 
   saveDataPreparation() {
-    //alert("valid");    
+    this.http.get('assets/data/tableList.json')
+      .subscribe(tData => {
+        // Calling the DT trigger to manually render the table
+        console.log(tData.json());
+        let dialogRef = this.dialog.open(TableSelectionComponent, {
+          width: 'auto',
+          maxWidth:'20vw',
+          data: tData.json()
+        });
+        const sub = dialogRef.componentInstance.onAdd.subscribe((data) => {
+          this.selectedTable=data;
+          this.myStepper.next();
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+      });
   }
 
   initDatabaseConnection() {

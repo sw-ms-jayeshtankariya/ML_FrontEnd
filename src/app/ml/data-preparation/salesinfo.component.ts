@@ -10,15 +10,15 @@ export class SalesInformationComponent {
   ctx: any;
   canvas: any;
 
-public setTitle(newTitle: string) {
+  public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
-}
+  }
 
   constructor(
     public dialogRef: MatDialogRef<SalesInformationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private titleService: Title) { 
-      this.setTitle("Sales Info")
-    }
+    @Inject(MAT_DIALOG_DATA) public data: any, private titleService: Title) {
+    this.setTitle("Sales Info")
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

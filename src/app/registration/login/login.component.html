@@ -1,0 +1,20 @@
+<h3 class="sign-title">Login</h3>
+<form id="frmSignIn" data-parsley-validate>
+  <div class="form-group">
+    <input data-parsley-required-message="Please enter email" data-parsley-type-message="Please enter proper email" type="email"
+      class="form-control" placeholder="Enter your email" required>
+  </div>
+  <!-- form-group -->
+  <div class="form-group mg-b-50">
+    <input data-parsley-required-message="Please enter password" type="password" class="form-control" placeholder="Enter your password"
+      required>
+  </div>
+  <!-- form-group -->
+  <button type="submit" (click)="doLogin($event)" class="btn btn-primary btn-block btn-signin">Sign In</button>
+  <p class="mg-b-0">Don't have an account?
+    <a [routerLink]="['/registration/signup']">Sign Up</a>
+  </p>
+  <p class="mg-b-0">Forget your password?
+    <a [routerLink]="['/registration/forgetpassword']">Forget Password</a>
+  </p>
+</form>

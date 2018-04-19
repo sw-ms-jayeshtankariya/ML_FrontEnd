@@ -1,17 +1,14 @@
 import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { User, UserRoles } from "../_models/user";
+import { User, UserRoles } from "../../_models/user";
 import { Http, Response } from "@angular/http";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { SelectListItem } from "../_models/SelectListItem";
+import { SelectListItem } from "../../_models/SelectListItem";
 import { debug } from "util";
 import { Title } from "@angular/platform-browser";
-import { slideInOutAnimation } from "../_animations/slide-in-out.animations";
 
 @Component({
-    templateUrl: './user.save.component.html',
-    animations: [slideInOutAnimation],
-    host: { '[@slideInOutAnimation]': ''}
+    templateUrl: './user.save.component.html'
 })
 export class SaveUserComponent implements OnInit {
     private _id: number;

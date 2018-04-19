@@ -1,0 +1,23 @@
+<h3 class="sign-title">Choose Function</h3>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card bg-primary tx-white bd-0" style="cursor: pointer;" (click)="chooseModule('ml')">
+            <div class="card-body">
+                <h5 class="card-title tx-white tx-medium mg-b-10">Machine Learning</h5>
+                <p class="card-text">We can place machine learning module description here.</p>
+                <a [routerLink]="['/ml/datapreparation']" class="card-link tx-white-7 hover-white">Go...</a>
+            </div>
+        </div>
+    </div>
+    <!-- col -->
+    <div class="col-md-6">
+        <div class="card bg-purple tx-white bd-0" style="cursor: pointer;" (click)="chooseModule('dl')">
+            <div class="card-body">
+                <h5 class="card-title tx-white tx-medium mg-b-10">Deep Learning</h5>
+                <p class="card-text">We can place deep learning module description here.</p>
+                <a [routerLink]="['/dl/myprojects']" class="card-link tx-white-7 hover-white">Go...</a>
+            </div>
+        </div>
+    </div>
+    <!-- col -->
+</div>
