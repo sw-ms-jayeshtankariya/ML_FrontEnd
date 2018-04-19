@@ -1,2 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+login{ background: url(assets/img/login-bg.jpg) no-repeat center top; background-size: cover;}
+.signin-box {width: 575px; padding: 80px 90px;}
+.btn-signin{ background: #2196f3; border-radius:25px; }
+.signin-box .sign-title {font-size: 17px; margin-bottom:50px;margin-top: 40px; font-weight:500;}
+.signin-box .sign-title:after{ content:""; background:#1474e2; height:2px; width:30px; display:block; margin-top:7px;}
+body{background: #eceff4;}
+.mat-drawer-container{ background-color: transparent;}
+
+/****LeftMenu***/
+.side-menu-list{ padding: 0;}
+.side-menu-list li {
+    display: block;
+}
+.side-menu-list li a {
+    color: #7e7e7e;
+    display: block;
+    font-size: 14px;
+    padding: 15px 5px 15px 55px;
+    position: relative;
+    width: 100%;
+}
+.side-menu-list li a .menu-icon {
+    border-radius: 50%;
+    height: 29px;
+    left: 19px;
+    position: absolute;
+    top: 10px;
+    width: 29px;
+    background:url("assets/img/menu-icon.png") no-repeat left top;
+}
+/****Breadcrumb****/
+.breadcrumb {
+    background-color:#e0e4eb;
+    border-radius: 0;
+    color: #333333;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    margin-bottom: 0;
+    padding: 8px 15px;
+
+}
+.breadcrumb > li {
+    display: inline-block;
+}
+.breadcrumb a {
+    color: #0481c3;
+    font-family: "Proxima Nova";
+}
