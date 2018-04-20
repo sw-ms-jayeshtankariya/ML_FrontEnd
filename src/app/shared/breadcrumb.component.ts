@@ -11,7 +11,7 @@ interface IBreadcrumb {
 @Component({
   selector: "breadcrumb",
   template: `
-  <ol class="breadcrumb slim-breadcrumb" style="float: left;margin-right: 10px;    margin-top: 10px;margin-left: 10px;">
+  <ol class="breadcrumb slim-breadcrumb">
   <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
   <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
       <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>

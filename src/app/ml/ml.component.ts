@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params, PRIMARY_OUTLET, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -9,9 +9,11 @@ import { ActivatedRoute, Router, Params, PRIMARY_OUTLET, NavigationEnd } from '@
 export class MLComponent {
   title = 'Machine Learning';
   public breadcrumbs: IBreadcrumb[];
-
+  @Input()
+  opened: boolean
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.breadcrumbs = [];
+    this.opened=true;
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
       //set breadcrumbs

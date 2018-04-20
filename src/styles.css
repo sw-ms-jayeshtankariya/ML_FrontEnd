@@ -4,9 +4,8 @@ html{height: 100%;}
 body{min-height: 100%; background: #eceff4; }
 app-app-layout{min-height: 100vh; display:flex; -webkit-box-orient:vertical!important; -moz-box-orient:vertical!important; -ms-box-orient:vertical!important;-webkit-box-direction:normal!important;-moz-box-direction:normal!important; -ms-flex-direction:column!important;flex-direction:column!important; }
 /*****Login****/
-.signin-wrapper{-ms-flex-direction:column; flex-direction: column; }
-login{ background: url(assets/img/login-bg.jpg) no-repeat center top; background-size: cover;}
-.signin-box {width: 575px; padding: 80px 90px;}
+.signin-wrapper{-ms-flex-direction:column; flex-direction: column;background: url('assets/img/login-bg.jpg') no-repeat center top; background-size: cover; }
+.signin-box {width: 500px; padding: 50px 60px;}
 .btn-signin{ background: #2196f3; border-radius:25px; }
 .signin-box .sign-title {font-size: 17px; margin-bottom:50px;margin-top: 40px; font-weight:500;}
 .signin-box .sign-title:after{ content:""; background:#1474e2; height:2px; width:30px; display:block; margin-top:7px;}
@@ -35,7 +34,9 @@ site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:en
     height: 34px;
 }
 
-
+#menuSidenav {
+    min-width: 210px;
+}
 
 .mat-drawer{ border-right: 1px solid #b7b7b7}
 .side-menu-list{ padding: 0;}
@@ -106,17 +107,4 @@ site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:en
 
 @media (max-width:1200px) {
     #btnMenuToggle.hamburger-menu{ display: block}
-    /*
-     #menuSideNavContainer .mat-drawer-backdrop{display:block}
-    .hamburger-menu{ display:inline-block; vertical-align:top; font-size:0;border:0; position:relative; background-color:transparent; margin-left: 10px;
-        margin-top: 12px;
-        width: 30px;
-        height: 30px;}
-
-    .hamburger-menu:focus{ outline:none !important}
-    .mat-drawer {-webkit-transform: translate3d(-100%,0,0) !important;
-        transform: translate3d(-100%,0,0)!important;}
-    .side-menu {  left: -210px;    transition: all 0.2s ease-in-out 0s;}
-    .menu-left-opened .side-menu {left: 0;}
-    .mat-drawer-content{ margin-left: 0!important;}*/
     }
