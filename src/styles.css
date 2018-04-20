@@ -1,14 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html{height: 100%;}
+body{min-height: 100%; background: #eceff4; }
+app-app-layout{min-height: 100vh; display:flex; -webkit-box-orient:vertical!important; -moz-box-orient:vertical!important; -ms-box-orient:vertical!important;-webkit-box-direction:normal!important;-moz-box-direction:normal!important; -ms-flex-direction:column!important;flex-direction:column!important; }
+/*****Login****/
+.signin-wrapper{-ms-flex-direction:column; flex-direction: column; }
 login{ background: url(assets/img/login-bg.jpg) no-repeat center top; background-size: cover;}
 .signin-box {width: 575px; padding: 80px 90px;}
 .btn-signin{ background: #2196f3; border-radius:25px; }
 .signin-box .sign-title {font-size: 17px; margin-bottom:50px;margin-top: 40px; font-weight:500;}
 .signin-box .sign-title:after{ content:""; background:#1474e2; height:2px; width:30px; display:block; margin-top:7px;}
-body{background: #eceff4;}
-.mat-drawer-container{ background-color: transparent;}
+
+/*******Content***/
+.mat-drawer-container{ background-color: transparent; min-height: calc(100vh - 136px) !important;}
+.mat-drawer-content{ margin-right: 0 !important; overflow: inherit; margin-bottom: 15px;}
+
+/***Footer***/
+
+.slim-footer{ margin-top:0; padding: 0; }
+site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:end!important;-ms-flex-align:end!important;align-items:flex-end!important}
+.copy-right{ color: #ffffff; font-size: 16px; margin-top: 20px;}
+
 
 /****LeftMenu***/
+
+#btnMenuToggle.hamburger-menu,#menuSideNavContainer .mat-drawer-backdrop{ display:none}
+.mat-drawer:not(.mat-drawer-side){ -webkit-box-shadow: none !important; -ms-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important;}
+.hamburger-menu {
+    display: block;
+    margin: -1px 0px 0;
+    position: relative;
+    border: 0;
+    background: #adb7be;
+    height: 34px;
+}
+
+
+
+.mat-drawer{ border-right: 1px solid #b7b7b7}
 .side-menu-list{ padding: 0;}
 .side-menu-list li {
     display: block;
@@ -30,6 +59,12 @@ body{background: #eceff4;}
     width: 29px;
     background:url("assets/img/menu-icon.png") no-repeat left top;
 }
+.side-menu-list li a .menu-icon1{ background-position:0px top;}
+.side-menu-list li a .menu-icon2{ background-position:left -52px;}
+.side-menu-list li a .menu-icon3{ background-position:left -104px;}
+.side-menu-list li a .menu-icon4{ background-position:left -157px;}
+.side-menu-list li a .menu-icon5{ background-position:left -208px;}
+.side-menu-list li a:hover,.side-menu-list li a:focus,.side-menu-list li.active a{ background:#f6f8fa; color:#2196f3; text-decoration:none !important; outline:none}
 /****Breadcrumb****/
 .breadcrumb {
     background-color:#e0e4eb;
@@ -48,3 +83,21 @@ body{background: #eceff4;}
     color: #0481c3;
     font-family: "Proxima Nova";
 }
+
+
+@media (max-width:1200px) {
+    #btnMenuToggle.hamburger-menu{ display: block}
+    /*
+     #menuSideNavContainer .mat-drawer-backdrop{display:block}
+    .hamburger-menu{ display:inline-block; vertical-align:top; font-size:0;border:0; position:relative; background-color:transparent; margin-left: 10px;
+        margin-top: 12px;
+        width: 30px;
+        height: 30px;}
+
+    .hamburger-menu:focus{ outline:none !important}
+    .mat-drawer {-webkit-transform: translate3d(-100%,0,0) !important;
+        transform: translate3d(-100%,0,0)!important;}
+    .side-menu {  left: -210px;    transition: all 0.2s ease-in-out 0s;}
+    .menu-left-opened .side-menu {left: 0;}
+    .mat-drawer-content{ margin-left: 0!important;}*/
+    }

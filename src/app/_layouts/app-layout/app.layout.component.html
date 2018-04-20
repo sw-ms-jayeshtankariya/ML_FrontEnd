@@ -1,12 +1,13 @@
 <app-header></app-header>
+ <button id="btnMenuToggle" class="hamburger-menu" (click)="sidenav.toggle()">
+                        <i [ngClass]="{'fa':true,'fa-chevron-right':opened,'fa-chevron-left':!opened}" aria-hidden="true"></i>
+                    </button>
 <mat-sidenav-container class="example-container" id="menuSideNavContainer">
-    <mat-sidenav id="menuSidenav" #sidenav mode="side" [(opened)]="opened">
+    <mat-sidenav id="menuSidenav" #sidenav mode="push" [(opened)]="opened">
                  <!-- <mat-toolbar class="md-theme-indigo" layout="row">
                     <h1 class="md-toolbar-tools">Sidenav Left</h1>
                   </mat-toolbar> -->
-                  <button id="btnMenuToggle" class="hamburger-menu" (click)="sidenav.toggle()">
-                        <i [ngClass]="{'fa':true,'fa-chevron-right':!opened,'fa-chevron-left':opened}" aria-hidden="true"></i>
-                    </button>
+                 
                   <ul class="side-menu-list">
                         <li>
                             <a href="javascript:void(0)" (click)="navigateToUrl('/home/datapreparation')"> <span class="menu-icon menu-icon1"></span> Data Preparation</a>
@@ -27,16 +28,12 @@
     </mat-sidenav>
   
     <mat-sidenav-content>
-        <div class="row">
-            <div class="col-md-12">
-             <ol class="breadcrumb slim-breadcrumb">
-                <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
-                <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
-                    <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
-            </li>
-          </ol>
-        </div>
-        </div>
+            <ol class="breadcrumb slim-breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
+                    <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
+                        <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+                </li>
+              </ol>
       <div class="slim-mainpanel">
           <div class="container">
             <div class="slim-pageheader" *ngIf="isToShow">
