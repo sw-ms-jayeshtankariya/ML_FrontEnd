@@ -3,12 +3,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-// import { routes, routing } from '../app.routing';
-import { SiteLayoutComponent } from './_layouts/site-layout/site.layout.component';
-import { SiteHeaderComponent } from './_layouts/site-header/site.header.component';
-import { SiteFooterComponent } from './_layouts/site-footer/site.footer.component';
 import { ScriptHackComponent } from './script.hack.component';
-import { Select2Module } from 'ng2-select2';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { SSnackBar } from './_matProviders/mat.snack';
@@ -19,7 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './registration/login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [    
-  {path:'**', redirectTo:'/registration/login'},  
+  {path:'', redirectTo:'/registration/login',pathMatch:'full'},
+  {path:'**', redirectTo:'/pagenotfound'},
   { path: 'ml', loadChildren: './ml/ml.module' },  
   { path: 'dl', loadChildren: './dl/dl.module' },  
   { path: 'login', loadChildren: './registration/registration.module' },  
@@ -27,15 +23,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ScriptHackComponent,
-    AppComponent,
-    SiteLayoutComponent,
-    SiteHeaderComponent
+    AppComponent
   ],
   imports: [
     // routing,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
-    Select2Module,
     BrowserAnimationsModule,
     SharedModule,
     MLModule,

@@ -17,8 +17,6 @@ import {
 } from '@angular/material';
 import { SSnackBar } from '../_matProviders/mat.snack';
 import { MLComponent } from './ml.component';
-import { AppHeaderComponent } from '../_layouts/app-header/app.header.component';
-import { SiteFooterComponent } from '../_layouts/site-footer/site.footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { SaveUserComponent } from './users/user.save.component';
 const routes: Routes = [
@@ -59,8 +57,6 @@ const routes: Routes = [
     entryComponents: [SalesInformationComponent, TableSelectionComponent],
     declarations: [
         MLComponent,
-        AppHeaderComponent,
-        SiteFooterComponent,
         DataPreparationComponent,
         ModelsComponent,
         UsersComponent,
