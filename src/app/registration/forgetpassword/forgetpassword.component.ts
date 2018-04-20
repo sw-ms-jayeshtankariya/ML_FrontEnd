@@ -6,9 +6,7 @@ import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
   selector: 'login',
   templateUrl: './forgetpassword.component.html',
-  styleUrls: ['./forgetpassword.component.css'],
-  animations: [slideInOutAnimation],
-  host: { '[@slideInOutAnimation]': ''}
+  styleUrls: ['./forgetpassword.component.css']
 })
 export class ForgetPasswordComponent implements OnInit {
   ngOnInit(): void {

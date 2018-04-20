@@ -1,4 +1,7 @@
-      <h1 mat-dialog-title>SALES</h1>
+<div mat-dialog-title>
+    SALES
+    <i (click)="onCancelClick()" class="fa fa-times-circle" aria-hidden="true" style="cursor:pointer; float:right; margin-top: 5px; width: 20px"></i>
+</div>
 <div mat-dialog-content>
         <mat-tab-group (selectedTabChange)="onTabChange($event)">
                 <mat-tab label="Statistics">
@@ -50,8 +53,4 @@
                     
                 </mat-tab>
               </mat-tab-group>
-</div>
-<div mat-dialog-actions>
-  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </div>

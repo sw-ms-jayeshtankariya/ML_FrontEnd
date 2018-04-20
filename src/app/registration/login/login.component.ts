@@ -6,9 +6,7 @@ import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  animations: [slideInOutAnimation],
-  host: { '[@slideInOutAnimation]': ''}
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   ngOnInit(): void {

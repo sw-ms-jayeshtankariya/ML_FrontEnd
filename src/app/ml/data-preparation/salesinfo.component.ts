@@ -14,6 +14,10 @@ export class SalesInformationComponent {
     this.titleService.setTitle(newTitle);
   }
 
+  onCancelClick(): void {
+    this.dialogRef.close();
+  }
+
   constructor(
     public dialogRef: MatDialogRef<SalesInformationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private titleService: Title) {

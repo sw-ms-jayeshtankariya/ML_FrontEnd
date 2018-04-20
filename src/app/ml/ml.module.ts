@@ -8,30 +8,51 @@ import { UsersComponent } from './users/users.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { SalesInformationComponent } from './data-preparation/salesinfo.component';
 import { TableSelectionComponent } from './data-preparation/table.selection.component';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
-import {MatTabsModule,MatSidenavModule,MatCheckboxModule,MatDialogModule,
-    MatFormFieldModule, MatButtonModule, MatCard, MatCardModule,MatStepperModule,
-    MatToolbarModule, MatSelectModule,MatSnackBarModule} from '@angular/material';
+import {
+    MatTabsModule, MatSidenavModule, MatCheckboxModule, MatDialogModule,
+    MatFormFieldModule, MatButtonModule, MatCard, MatCardModule, MatStepperModule,
+    MatToolbarModule, MatSelectModule, MatSnackBarModule
+} from '@angular/material';
 import { SSnackBar } from '../_matProviders/mat.snack';
 import { MLComponent } from './ml.component';
 import { AppHeaderComponent } from '../_layouts/app-header/app.header.component';
 import { SiteFooterComponent } from '../_layouts/site-footer/site.footer.component';
+import { SharedModule } from '../shared/shared.module';
+import { SaveUserComponent } from './users/user.save.component';
 const routes: Routes = [
-    { path: 'ml', component: MLComponent, children:[
-        { path: 'datapreparation', component: DataPreparationComponent, data:{
-            breadcrumb:'Data Preparation'
-        } },
-        { path: 'models', component: ModelsComponent, data:{
-            breadcrumb:'Models'
-        } },
-        { path: 'users', component: UsersComponent, data:{
-            breadcrumb:'Users'
-        } },
-        { path: 'notifications', component: NotificationsComponent, data:{
-            breadcrumb:'Notifications'
-        } }
-    ]},    
+    {
+        path: 'ml', component: MLComponent, children: [
+            {
+                path: 'datapreparation', component: DataPreparationComponent, data: {
+                    breadcrumb: 'Data Preparation'
+                }
+            },
+            {
+                path: 'models', component: ModelsComponent, data: {
+                    breadcrumb: 'Models'
+                }
+            },
+            {
+                path: 'users', component: UsersComponent, data: {
+                    breadcrumb: 'Users'
+                }
+            },
+            {
+                path: 'notifications', component: NotificationsComponent, data: {
+                    breadcrumb: 'Notifications'
+                }
+            },
+            {
+                path: 'user/:id',
+                component: SaveUserComponent,
+                data: {
+                    breadcrumb: 'Save User'
+                }
+            }
+        ]
+    },
 ];
 
 @NgModule({
@@ -45,7 +66,8 @@ const routes: Routes = [
         UsersComponent,
         NotificationsComponent,
         SalesInformationComponent,
-        TableSelectionComponent
+        TableSelectionComponent,
+        SaveUserComponent
     ],
     imports: [
         BrowserModule,
@@ -65,7 +87,8 @@ const routes: Routes = [
         MatStepperModule,
         MatToolbarModule,
         MatSelectModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        SharedModule
     ],
     providers: [SSnackBar]
 })

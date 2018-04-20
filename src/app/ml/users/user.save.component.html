@@ -1,75 +1,85 @@
-<br><br>
+<br>
+<br>
 <form *ngIf="user" [formGroup]="userForm" (ngSubmit)="userForm.valid && saveUser(userForm.value)" novalidate>
-                  <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
+    <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
     <input type="hidden" formControlName="id">
     <div class="row">
         <div class="form-group col-md-6">
-                <label class="form-control-label">First Name: <span class="tx-danger">*</span></label>
-                <input id="firstName" class="form-control" name="firstName" 
-                placeholder="Enter First Name"  formControlName="firstName"
-                type="text" required>
-                <small *ngIf="!userForm.controls.firstName.valid"  class="text-danger">
-                    Required.
-                    </small> 
+            <label class="form-control-label">First Name:
+                <span class="tx-danger">*</span>
+            </label>
+            <input id="firstName" class="form-control" name="firstName" placeholder="Enter First Name" formControlName="firstName" type="text"
+                required>
+            <small *ngIf="!userForm.controls.firstName.valid" class="text-danger">
+                Required.
+            </small>
 
         </div>
         <div class="form-group col-md-6">
-                <label class="form-control-label">Last Name: <span class="tx-danger">*</span></label>
-                <input id="lastName" class="form-control" name="lastName" 
-                placeholder="Enter Last Name"  formControlName="lastName" 
-                type="text" required>
-                <small *ngIf="!userForm.controls.lastName.valid"  class="text-danger">
-                    Required.
-                    </small> 
-                </div><!-- form-group -->
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-                <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
-                <input id="email" class="form-control" name="email" 
-                placeholder="Enter Email"  formControlName="email" 
-                type="text" required>
-                <small *ngIf="!userForm.controls.email.valid"  class="text-danger">
-                    Required.
-                    </small> 
-                </div><!-- form-group -->
-        <div class="form-group col-md-6">
-                <label class="form-control-label">Contact No: <span class="tx-danger">*</span></label>
-                <input id="contactNo" class="form-control" name="contactNo" 
-                placeholder="Enter Contact No"  formControlName="contactNo" 
-                type="text" required>
-                <small *ngIf="!userForm.controls.contactNo.valid"  class="text-danger">
-                    Required.
-                    </small> 
-                </div><!-- form-group -->
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-                <label class="form-control-label">Role: <span class="tx-danger">*</span></label>
-                <mat-select class="form-control" placeholder="Favorite food">
-                    <mat-option *ngFor="let opt of options" [value]="opt.key">
-                        {{ opt.value }}
-                    </mat-option>
-                </mat-select>
-                <small *ngIf="!userForm.controls.role.valid"  class="text-danger">
-                    Required.
-                    </small> 
-                </div><!-- form-group -->
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-4">
-                                
-                        </div>
-                        <div class="col-md-4">
-                                <label class="form-control-label">&nbsp;</label>
-                                <button type="button" (click)="saveUserInfo()" 
-                                class="btn btn-outline-primary active btn-block mg-b-10">Save</button></div>
-                        <div class="col-md-4">
-                                <label class="form-control-label">&nbsp;</label>
-                                <button class="btn btn-outline-danger btn-block mg-b-10">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+            <label class="form-control-label">Last Name:
+                <span class="tx-danger">*</span>
+            </label>
+            <input id="lastName" class="form-control" name="lastName" placeholder="Enter Last Name" formControlName="lastName" type="text"
+                required>
+            <small *ngIf="!userForm.controls.lastName.valid" class="text-danger">
+                Required.
+            </small>
         </div>
-        
+        <!-- form-group -->
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label class="form-control-label">Email:
+                <span class="tx-danger">*</span>
+            </label>
+            <input id="email" class="form-control" name="email" placeholder="Enter Email" formControlName="email" type="text" required>
+            <small *ngIf="!userForm.controls.email.valid" class="text-danger">
+                Required.
+            </small>
+        </div>
+        <!-- form-group -->
+        <div class="form-group col-md-6">
+            <label class="form-control-label">Contact No:
+                <span class="tx-danger">*</span>
+            </label>
+            <input id="contactNo" class="form-control" name="contactNo" placeholder="Enter Contact No" formControlName="contactNo" type="text"
+                required>
+            <small *ngIf="!userForm.controls.contactNo.valid" class="text-danger">
+                Required.
+            </small>
+        </div>
+        <!-- form-group -->
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label class="form-control-label">Role:
+                <span class="tx-danger">*</span>
+            </label>
+            <mat-select class="form-control" placeholder="Favorite food">
+                <mat-option *ngFor="let opt of options" [value]="opt.key">
+                    {{ opt.value }}
+                </mat-option>
+            </mat-select>
+            <small *ngIf="!userForm.controls.role.valid" class="text-danger">
+                Required.
+            </small>
+        </div>
+        <!-- form-group -->
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <label class="form-control-label">&nbsp;</label>
+                    <button type="button" (click)="saveUserInfo()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-control-label">&nbsp;</label>
+                    <button type="button" class="btn btn-outline-danger btn-block mg-b-10">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </form>

@@ -11,12 +11,12 @@ interface IBreadcrumb {
 @Component({
   selector: "breadcrumb",
   template: `
-    <ol class="breadcrumb slim-breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="" class="breadcrumb">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page" *ngFor="let breadcrumb of breadcrumbs">
-            <a class="breadcrumb" [routerLink]="[breadcrumb.url, breadcrumb.params]">{{breadcrumb.label}}</a>
-        </li>
-    </ol>
+  <ol class="breadcrumb slim-breadcrumb" style="float: left;margin-right: 10px;    margin-top: 10px;margin-left: 10px;">
+  <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
+  <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
+      <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+    </li>
+</ol>
   `
 })
 export class BreadcrumbComponent implements OnInit {
@@ -28,20 +28,18 @@ export class BreadcrumbComponent implements OnInit {
     private router: Router
   ) {
     this.breadcrumbs = [];
-  }
-
-  ngOnInit() {
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
     //subscribe to the NavigationEnd event
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
-      
       //set breadcrumbs
       let root: ActivatedRoute = this.activatedRoute.root;
       this.breadcrumbs = this.getBreadcrumbs(root);
     });
   }
-  
-  private getBreadcrumbs(route: ActivatedRoute, url: string="", breadcrumbs: IBreadcrumb[]=[]): IBreadcrumb[] {
+  ngOnInit() {
+
+  }
+  private getBreadcrumbs(route: ActivatedRoute, url: string = "", breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
 
     //get the child routes
@@ -77,13 +75,9 @@ export class BreadcrumbComponent implements OnInit {
         url: url
       };
       breadcrumbs.push(breadcrumb);
-      
+
       //recursive
       return this.getBreadcrumbs(child, url, breadcrumbs);
     }
-    
-    //we should never get here, but just in case
-    return breadcrumbs;
   }
-
 }

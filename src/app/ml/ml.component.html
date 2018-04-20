@@ -149,27 +149,27 @@
                   </mat-toolbar> -->
                   <div class="row-fluid">
                     <div class="col-md-12">
-                        <button (click)="navigateToUrl('/home/datapreparation')" class="btn btn-outline-primary btn-block mg-b-10">Data Preparation</button>
+                        <button (click)="navigateToUrl('/ml/datapreparation')" class="btn btn-outline-primary btn-block mg-b-10">Data Preparation</button>
                     </div>
                   </div>
                   <div class="row-fluid">
                       <div class="col-md-12">
-                          <button (click)="navigateToUrl('/home/models')" class="btn btn-outline-primary btn-block mg-b-10">Models</button>
+                          <button (click)="navigateToUrl('/ml/models')" class="btn btn-outline-primary btn-block mg-b-10">Models</button>
                       </div>
                     </div>
                     <div class="row-fluid">
                         <div class="col-md-12">
-                            <button (click)="navigateToUrl('/home/users')" class="btn btn-outline-primary btn-block mg-b-10">Users</button>
+                            <button (click)="navigateToUrl('/ml/users')" class="btn btn-outline-primary btn-block mg-b-10">Users</button>
                         </div>
                       </div>
                       <div class="row-fluid">
                           <div class="col-md-12">
-                              <button (click)="navigateToUrl('/home/notifications')" class="btn btn-outline-primary btn-block mg-b-10">Notifications</button>
+                              <button (click)="navigateToUrl('/ml/notifications')" class="btn btn-outline-primary btn-block mg-b-10">Notifications</button>
                           </div>
                         </div>
                         <div class="row-fluid">
                             <div class="col-md-12">
-                                <button (click)="navigateToUrl('/home/settings')" class="btn btn-outline-primary btn-block mg-b-10">Settings</button>
+                                <button (click)="navigateToUrl('/ml/settings')" class="btn btn-outline-primary btn-block mg-b-10">Settings</button>
                             </div>
                           </div>
     </mat-sidenav>
@@ -179,12 +179,13 @@
           <button id="btnMenuToggle" class="btn btn-secondary btn-block mg-b-10" (click)="sidenav.toggle()">
             <i [ngClass]="{'fa':true,'fa-chevron-right':!opened,'fa-chevron-left':opened}" aria-hidden="true"></i>
         </button></p>
-        <ol class="breadcrumb slim-breadcrumb" style="float: left;margin-right: 10px;    margin-top: 10px;margin-left: 10px;">
+        <!-- <ol class="breadcrumb slim-breadcrumb" style="float: left;margin-right: 10px;    margin-top: 10px;margin-left: 10px;">
             <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
             <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
                 <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
               </li>
-          </ol>
+          </ol> -->
+          <breadcrumb></breadcrumb>
       <div class="slim-mainpanel">
           <div class="container">
             <div class="slim-pageheader" *ngIf="isToShow">

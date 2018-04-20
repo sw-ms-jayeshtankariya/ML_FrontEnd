@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { SiteLayoutComponent } from './_layouts/site-layout/site.layout.component';
 import { SiteHeaderComponent } from './_layouts/site-header/site.header.component';
 import { SiteFooterComponent } from './_layouts/site-footer/site.footer.component';
-import { BreadcrumbComponent } from './breadcrumb.component';
 import { ScriptHackComponent } from './script.hack.component';
 import { Select2Module } from 'ng2-select2';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -28,10 +27,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ScriptHackComponent,
-    BreadcrumbComponent,
     AppComponent,
     SiteLayoutComponent,
-    SiteHeaderComponent,
+    SiteHeaderComponent
   ],
   imports: [
     // routing,
@@ -39,10 +37,10 @@ const routes: Routes = [
     NgbModule.forRoot(),
     Select2Module,
     BrowserAnimationsModule,
+    SharedModule,
     MLModule,
     DLModule,
-    RegistrationModule,
-    SharedModule
+    RegistrationModule    
   ],
   providers: [SSnackBar],
   bootstrap: [AppComponent]

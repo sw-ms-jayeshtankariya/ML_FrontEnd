@@ -6,9 +6,7 @@ import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
   selector: 'login',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
-  animations: [slideInOutAnimation],
-  host: { '[@slideInOutAnimation]': '' }
+  styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent implements OnInit {
   constructor(private titleService: Title,private _router:Router) {

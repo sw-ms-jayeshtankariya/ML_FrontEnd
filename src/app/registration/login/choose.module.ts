@@ -6,9 +6,7 @@ import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
     selector: 'choose-module',
     templateUrl: './choose.module.html',
-    styleUrls: ['./choose.module.css'],
-    animations: [slideInOutAnimation],
-    host: { '[@slideInOutAnimation]': '' }
+    styleUrls: ['./choose.module.css']
 })
 export class ChooseModuleComponent implements OnInit {
     ngOnInit(): void {

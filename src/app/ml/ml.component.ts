@@ -10,7 +10,7 @@ export class MLComponent {
   title = 'Machine Learning';
   public breadcrumbs: IBreadcrumb[];
 
-  constructor(private activatedRoute: ActivatedRoute,private router: Router){
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.breadcrumbs = [];
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
@@ -20,7 +20,12 @@ export class MLComponent {
     });
   }
 
-  private getBreadcrumbs(route: ActivatedRoute, url: string="", breadcrumbs: IBreadcrumb[]=[]): IBreadcrumb[] {
+  navigateToUrl(url:string)
+  {
+    this.router.navigateByUrl(url);
+  }
+
+  private getBreadcrumbs(route: ActivatedRoute, url: string = "", breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
 
     //get the child routes
@@ -60,11 +65,11 @@ export class MLComponent {
       //recursive
       return this.getBreadcrumbs(child, url, breadcrumbs);
     }
-}
+  }
 }
 
 interface IBreadcrumb {
-    label: string;
-    params: Params;
-    url: string;
-  }
+  label: string;
+  params: Params;
+  url: string;
+}
