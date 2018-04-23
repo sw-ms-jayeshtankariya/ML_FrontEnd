@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'**', redirectTo:'/pagenotfound'},
   { path: 'ml', loadChildren: './ml/ml.module' },  
   { path: 'dl', loadChildren: './dl/dl.module' },  
-  { path: 'login', loadChildren: './registration/registration.module' },  
+  { path: 'login', loadChildren: './registration/registration.module' }
 ];  
 @NgModule({
   declarations: [

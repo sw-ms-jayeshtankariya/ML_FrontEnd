@@ -194,7 +194,7 @@
                             <i class="icon ion-ios-bolt"></i> Activity Log</a>
                         <a href="page-settings.html" class="nav-link">
                             <i class="icon ion-ios-gear"></i> Account Settings</a>
-                        <a href="page-signin.html" class="nav-link">
+                        <a [routerLink]="['/logout']" class="nav-link">
                             <i class="icon ion-forward"></i> Sign Out</a>
                     </nav>
                 </div>
@@ -209,19 +209,16 @@
 <!-- slim-header -->
 <mat-sidenav-container class="example-container" id="menuSideNavContainer">
     <mat-sidenav id="menuSidenav" #sidenav mode="side" [(opened)]="opened">
-        <!-- <mat-toolbar class="md-theme-indigo" layout="row">
-                    <h1 class="md-toolbar-tools">Sidenav Left</h1>
-                  </mat-toolbar> -->
-        <div class="row-fluid">
-            <div class="col-md-12">
-                <button (click)="navigateToUrl('/dl/myprojects')" class="btn btn-outline-primary btn-block mg-b-10">My Projects</button>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="col-md-12">
-                <button (click)="navigateToUrl('/shared/settings')" class="btn btn-outline-primary btn-block mg-b-10">Settings</button>
-            </div>
-        </div>
+            <ul class="side-menu-list">
+                    <li>
+                      <a [routerLink]="['/dl/myprojects']">
+                        <span class="menu-icon menu-icon1"></span> My Projects</a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/dl/settings']">
+                        <span class="menu-icon menu-icon5"></span> Settings</a>
+                    </li>
+                  </ul>
     </mat-sidenav>
 
     <mat-sidenav-content>

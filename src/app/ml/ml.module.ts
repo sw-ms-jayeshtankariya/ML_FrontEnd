@@ -19,6 +19,8 @@ import { SSnackBar } from '../_matProviders/mat.snack';
 import { MLComponent } from './ml.component';
 import { SharedModule } from '../shared/shared.module';
 import { SaveUserComponent } from './users/user.save.component';
+import { ConfirmationModalComponent } from '../shared/confirmationmodal.component';
+import { SettingsComponent } from '../shared/settings/settings.component';
 const routes: Routes = [
     {
         path: 'ml', component: MLComponent, children: [
@@ -48,14 +50,20 @@ const routes: Routes = [
                 data: {
                     breadcrumb: 'Save User'
                 }
+            },
+            {
+                path: 'settings', component: SettingsComponent, data: {
+                    breadcrumb: 'Settings'
+                }
             }
         ]
     },
 ];
 
 @NgModule({
-    entryComponents: [SalesInformationComponent, TableSelectionComponent],
+    entryComponents: [SalesInformationComponent, TableSelectionComponent,ConfirmationModalComponent],
     declarations: [
+        ConfirmationModalComponent,
         MLComponent,
         DataPreparationComponent,
         ModelsComponent,

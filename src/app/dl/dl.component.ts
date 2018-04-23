@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'dl',
@@ -6,5 +6,10 @@ import { Component } from "@angular/core";
     styleUrls: ['./dl.component.css']
 })
 export class DLComponent {
+    @Input()
+    opened: boolean
 
+    constructor(){
+        this.opened=true;
+    }
 }

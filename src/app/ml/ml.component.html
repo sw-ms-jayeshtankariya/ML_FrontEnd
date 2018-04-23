@@ -194,7 +194,7 @@
               <i class="icon ion-ios-bolt"></i> Activity Log</a>
             <a href="page-settings.html" class="nav-link">
               <i class="icon ion-ios-gear"></i> Account Settings</a>
-            <a href="page-signin.html" class="nav-link">
+            <a (click)="confirmLogout()" class="nav-link">
               <i class="icon ion-forward"></i> Sign Out</a>
           </nav>
         </div>
@@ -217,23 +217,23 @@
                   </mat-toolbar> -->
     <ul class="side-menu-list">
       <li>
-        <a href="javascript:void(0)" (click)="navigateToUrl('/home/datapreparation')">
+        <a [routerLink]="['/ml/datapreparation']">
           <span class="menu-icon menu-icon1"></span> Data Preparation</a>
       </li>
       <li>
-        <a href="javascript:void(0)" (click)="navigateToUrl('/home/models')">
+        <a [routerLink]="['/ml/models']">
           <span class="menu-icon menu-icon2"></span> Models</a>
       </li>
       <li>
-        <a href="javascript:void(0)" (click)="navigateToUrl('/home/users')">
+        <a [routerLink]="['/ml/users']">
           <span class="menu-icon menu-icon3"></span> Users</a>
       </li>
       <li>
-        <a href="javascript:void(0)" (click)="navigateToUrl('/home/notifications')">
+        <a [routerLink]="['/ml/notifications']">
           <span class="menu-icon menu-icon4"></span> Notifications</a>
       </li>
       <li>
-        <a href="javascript:void(0)" (click)="navigateToUrl('/home/settings')">
+        <a [routerLink]="['/ml/settings']">
           <span class="menu-icon menu-icon5"></span> Settings</a>
       </li>
     </ul>

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params, PRIMARY_OUTLET, NavigationEnd } from '@angular/router';
+import { ConfirmationModalComponent } from '../shared/confirmationmodal.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'ml',
@@ -7,11 +9,12 @@ import { ActivatedRoute, Router, Params, PRIMARY_OUTLET, NavigationEnd } from '@
   styleUrls: ['./ml.component.css']
 })
 export class MLComponent {
+
   title = 'Machine Learning';
   public breadcrumbs: IBreadcrumb[];
   @Input()
   opened: boolean
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,public dialog: MatDialog) {
     this.breadcrumbs = [];
     this.opened=true;
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
@@ -19,6 +22,20 @@ export class MLComponent {
       //set breadcrumbs
       let root: ActivatedRoute = this.activatedRoute.root;
       this.breadcrumbs = this.getBreadcrumbs(root);
+    });
+  }
+
+  confirmLogout(){
+    let dialogRef = this.dialog.open(ConfirmationModalComponent, {
+      width: '20vw',
+      maxWidth: '20vw',
+      data: 'Are you sure want to logout?'
+    });
+    const sub = dialogRef.componentInstance.onYes.subscribe((data) => {
+      this.router.navigateByUrl("/logout");
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
     });
   }
 

@@ -10,10 +10,21 @@ import {
 } from '@angular/material';
 import { BreadcrumbComponent } from '../shared/breadcrumb.component';
 import { SharedModule } from '../shared/shared.module';
+import { SettingsComponent } from '../shared/settings/settings.component';
 const routes: Routes = [
   {
     path: 'dl', component: DLComponent, children: [
-      { path: 'myprojects', component: MyProjectsComponent }]
+      {
+        path: 'myprojects', component: MyProjectsComponent, data: {
+          breadcrumb: 'My Projects'
+        }
+      },
+      {
+        path: 'settings', component: SettingsComponent, data: {
+          breadcrumb: 'Settings'
+        }
+      }
+    ]
   }
 ];
 

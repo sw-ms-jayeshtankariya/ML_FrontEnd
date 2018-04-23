@@ -16,7 +16,7 @@ import { TableData } from '../../_models/tabledata';
   styleUrls: ['./data.preparation.component.css']
 })
 export class DataPreparationComponent implements OnInit {
-  selectedTable:string;
+  selectedTable: string;
   tableData: TableData[] = [];
   events = [];
 
@@ -49,14 +49,13 @@ export class DataPreparationComponent implements OnInit {
     this.http.get('assets/data/tableList.json')
       .subscribe(tData => {
         // Calling the DT trigger to manually render the table
-        console.log(tData.json());
         let dialogRef = this.dialog.open(TableSelectionComponent, {
           width: 'auto',
-          maxWidth:'20vw',
+          maxWidth: '20vw',
           data: tData.json()
         });
         const sub = dialogRef.componentInstance.onAdd.subscribe((data) => {
-          this.selectedTable=data;
+          this.selectedTable = data;
           this.myStepper.next();
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -173,7 +172,6 @@ export class DataPreparationComponent implements OnInit {
   }
   public setConnectionType(type: string) {
     // update payment method type value
-    debugger;
     const ctrl: FormControl = (<any>this.dataConnectionForm).controls.connectionType;
     ctrl.setValue(type);
   }
