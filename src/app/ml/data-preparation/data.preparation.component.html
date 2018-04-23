@@ -233,17 +233,17 @@
                             </div>
                         </div>
                     </form>
-
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn btn-outline-primary btn-block mg-b-10">Test Connection</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <button class="btn btn-outline-primary btn-block mg-b-10">Test Connection</button>
-                </div>
-                <div class="col-md-2">
-                    <button type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
-                </div>
-            </div>
+          
         </mat-step>
         <mat-step label="Review Data">
             <div class="row-fluid">
@@ -306,13 +306,19 @@
                             <button matStepperNext class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
                         </div>
                     </div>
-                    <mat-sidenav-container class="example-container">
-                        <mat-sidenav #sidenav mode="side" [(opened)]="opened" style="min-width: 200px !important;width: 85vw !important;max-width: 400px !important;">
-                            <div class="row-fluid">
+                    <mat-sidenav-container class="example-container mat-drawer-container-inner">
+                        <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="tab-side-nav">
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title tx-dark tx-medium mg-b-10">Clean Data</h5>
+                                                <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                            <h5 class="card-title tx-dark tx-medium mg-b-10">Clean Data</h5>
+                                                            </div>
+                                                        </div>  
+                                                </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
@@ -352,7 +358,7 @@
                         </mat-sidenav>
                         <mat-sidenav-content>
                             <p>
-                                <button id="btnToggle" class="btn btn-secondary btn-block mg-b-10" (click)="sidenav.toggle()">
+                                <button id="btnToggle" class="btn btn-secondary btn-block mg-t-10 tab-side-toggle-btn" (click)="sidenav.toggle()">
                                     <i [ngClass]="{'fa':true,'fa-chevron-right':!opened,'fa-chevron-left':opened}" aria-hidden="true"></i>
                                 </button>
                             </p>
