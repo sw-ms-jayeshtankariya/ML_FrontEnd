@@ -103,8 +103,47 @@ site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:en
     margin: 0px !important;
     border-top: 1px solid lightgray !important;
 }
+.mat-stepper-horizontal, .mat-stepper-vertical{ background-color: transparent;}
+.mat-horizontal-content-container{ background-color: #ffffff; padding: 24px 9px!important;}
+.mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover{ background-color: transparent;}
+.dataTables_wrapper .form-control,.dataTables_wrapper select{
 
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    color: #495057;
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 0.594rem 0.75rem;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s, -webkit-box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
 
+.dataTables_wrapper .dataTables_filter label{color: rgba(0, 0, 0, 0.87); margin-bottom: 0.5rem; display: inline-block}
+.dataTables_wrapper .form-control, .dataTables_wrapper select{ display: inline-block; width: inherit; margin: 0 5px;}
+.dataTables_length,.dataTables_wrapper .dataTables_filter{white-space: nowrap; padding-right:0; }
+.dataTables_filter input{display: inline-block; width: inherit}
+.mat-drawer-container-inner{ min-height: inherit !important;}
+.mat-drawer-content .mat-drawer-content{ overflow: inherit;}
+.tab-side-nav{width: 260px !important;  padding-right: 15px;}
+.tab-side-toggle-btn{ padding:0; text-align: center;}
+.mat-drawer{border: 0;}
+.slim-mainpanel{ width: 100%; overflow: hidden;}
+.mat-dialog-container{min-width: 240px;}
 @media (max-width:1200px) {
     #btnMenuToggle.hamburger-menu{ display: block}
     }
+@media (max-width:640px) {
+    .mat-horizontal-stepper-header-container{display: block !important;}
+}
+@media only screen and (-webkit-min-device-pixel-ratio:2), only screen and (min--moz-device-pixel-ratio:2){
+    
+    .side-menu-list li a .menu-icon{
+		background-image:url(assets/img/menu-icon@2x.png);
+		-webkit-background-size:27px 237px;
+		background-size:27px 237px;	
+		}
+
+}
