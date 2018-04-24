@@ -11,13 +11,21 @@ import {
 import { BreadcrumbComponent } from '../shared/breadcrumb.component';
 import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from '../shared/settings/settings.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AddEditProjectComponent } from './addeditproject/addeditproject.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddeditprojectdialogComponent } from './addeditprojectdialog/addeditprojectdialog.component';
 const routes: Routes = [
   {
     path: 'dl', component: DLComponent, children: [
       {
         path: 'myprojects', component: MyProjectsComponent, data: {
           breadcrumb: 'My Projects'
-        }
+        },children:[{
+          path: 'save/:id', component: AddEditProjectComponent, data: {
+            breadcrumb: 'Save Project'
+          }
+        }]
       },
       {
         path: 'settings', component: SettingsComponent, data: {
@@ -29,13 +37,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[AddeditprojectdialogComponent],
   declarations: [
     DLComponent,
-    MyProjectsComponent
+    MyProjectsComponent,
+    AddEditProjectComponent,
+    AddeditprojectdialogComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTabsModule,
     MatSidenavModule,
     MatCheckboxModule,

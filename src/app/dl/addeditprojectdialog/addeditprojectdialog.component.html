@@ -1,0 +1,37 @@
+<div mat-dialog-title>
+  SELECT TABLE
+  <i (click)="onCancelClick()" class="fa fa-times-circle" aria-hidden="true" style="cursor:pointer; float:right; margin-top: 5px; width: 20px"></i>
+</div>
+
+<div mat-dialog-content>
+  <form [formGroup]="projectForm" (ngSubmit)="projectForm.valid && saveProject(projectForm.value)" novalidate>
+    <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
+    <input type="hidden" formControlName="id">
+    <div class="row-fluid">
+      <div class="form-group col-md-12">
+        <label class="form-control-label">Name:
+          <span class="tx-danger">*</span>
+        </label>
+        <input id="name" class="form-control" name="name" placeholder="Enter Project Name" formControlName="name" type="text" required>
+        <small *ngIf="!projectForm.controls.name.valid" class="text-danger">
+          Required.
+        </small>
+      </div>
+      <div class="form-group col-md-12">
+        <label class="form-control-label">Descsription:
+          <span class="tx-danger">*</span>
+        </label>
+        <textarea id="desc" class="form-control" name="desc" placeholder="Enter Description" formControlName="desc" rows="3"></textarea>
+        <small *ngIf="!projectForm.controls.desc.valid" class="text-danger">
+          Required.
+        </small>
+      </div>
+      <!-- form-group -->
+    </div>
+  </form>
+  <pre>Content: <br>{{projectForm.value | json}}</pre>
+</div>
+<div mat-dialog-actions>
+  <button matButton type="button" (click)="saveProject()" class="btn btn-outline-primary" cdkForcusInitial>Save</button>
+  <button matButton type="button" class="btn btn-outline-danger">Cancel</button>
+</div>

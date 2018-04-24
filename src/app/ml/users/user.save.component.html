@@ -1,5 +1,3 @@
-<br>
-<br>
 <form *ngIf="user" [formGroup]="userForm" (ngSubmit)="userForm.valid && saveUser(userForm.value)" novalidate>
     <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
     <input type="hidden" formControlName="id">
