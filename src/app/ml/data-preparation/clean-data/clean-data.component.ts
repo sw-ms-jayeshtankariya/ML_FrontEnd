@@ -17,11 +17,11 @@ export class CleanDataComponent implements OnInit {
   constructor(private _local: LocalStorageService) { }
 
   ngOnInit() {
+    debugger;
     this.dtCleanOpt = {
       pageLength: 5
     };
     this.tableData = JSON.parse(this._local.getItem("reviewdata"));
-    this.dtCleanTrg.next();
   }
 
 }
