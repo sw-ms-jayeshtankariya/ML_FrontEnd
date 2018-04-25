@@ -1,8 +1,6 @@
-import * as $ from 'jquery';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
 import { MatDialog, MatStepper } from '@angular/material';
@@ -10,6 +8,8 @@ import { SalesInformationComponent } from './salesinfo.component';
 import { Title } from '@angular/platform-browser';
 import { TableSelectionComponent } from './table.selection.component';
 import { TableData } from '../../_models/tabledata';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './data.preparation.component.html',
@@ -17,32 +17,11 @@ import { TableData } from '../../_models/tabledata';
 })
 export class DataPreparationComponent implements OnInit {
   selectedTable: string;
-  tableData: TableData[] = [];
   events = [];
-
   @ViewChild('datapreparationstepper') private myStepper: MatStepper;
-
-  @ViewChild('tblReviewData')
-  private tblReviewData: DataTables.DataTables;
-  dtOptions: DataTables.Settings = {};
   dataConnectionForm: FormGroup;
-  dtTrigger: Subject<any> = new Subject();
   ngOnInit(): void {
     this.subscribePaymentTypeChanges();
-    this.dtOptions = {
-      pageLength: 5
-    };
-    this.http.get('assets/data/tableData.json')
-      .map(this.extractData)
-      .subscribe(tData => {
-        this.tableData = tData;
-        // Calling the DT trigger to manually render the table
-        this.dtTrigger.next();
-      });
-  }
-  private extractData(res: Response) {
-    const body = res.json();
-    return body || {};
   }
 
   saveDataPreparation() {
@@ -89,24 +68,8 @@ export class DataPreparationComponent implements OnInit {
     }
     return model;
   }
-
-  showSalesInfo(ver: number) {
-    var salesRec = this.tableData.filter(function (item) {
-      return item.var === ver;
-    })[0];
-    let dialogRef = this.dialog.open(SalesInformationComponent, {
-      width: '500px',
-      data: salesRec
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-    //const modalRef = this._salesInfo.open(SalesInfoComponent, { size: 'lg', backdrop: 'static',centered:true });
-    //modalRef.componentInstance.sales_Info = salesRec.sales_info;
-  }
   constructor(private _fb: FormBuilder, private http: Http,
-    public dialog: MatDialog, private titleService: Title) {
+    public dialog: MatDialog, private titleService: Title, private _router: Router) {
     this.dataConnectionForm = _fb.group({
       connectionType: this._fb.control(this.CONNECTION_TYPE.FTP, Validators.required),
       ftp: this._fb.group(this.initFTPConnection()),

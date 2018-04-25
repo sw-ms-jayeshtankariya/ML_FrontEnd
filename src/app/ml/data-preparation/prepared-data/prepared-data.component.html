@@ -1,0 +1,44 @@
+<div class="row-fluid">
+    <div class="col-md-12">
+
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-10">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">&nbsp;</div>
+        </div>
+        <div class="table-wrapper">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tblReviewData" class="table display responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>Var</th>
+                        <th>Sales</th>
+                        <th>Custsomers</th>
+                        <th>(Digital-Search-Billed)</th>
+                        <th>(Digital-Search_Clicks)</th>
+                        <th>(Digital - Search - Impressions)</th>
+                        <th>(Digital - Search)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tData of tableData">
+                        <td>{{tData.var}}</td>
+                        <td>
+                            <a href="javascript:void(0)" (click)="showSalesInfo(tData.var)">{{tData.sales}}</a>
+                        </td>
+                        <td>{{tData.customers}}</td>
+                        <td>{{tData.digital_search_billed}}</td>
+                        <td>{{tData.digital_search_clicks}}</td>
+                        <td>{{tData.digital_search_impressions}}</td>
+                        <td>{{tData.digital_Search}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

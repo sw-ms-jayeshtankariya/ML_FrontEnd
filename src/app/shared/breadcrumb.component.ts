@@ -12,9 +12,10 @@ interface IBreadcrumb {
   selector: "breadcrumb",
   template: `
   <ol class="breadcrumb slim-breadcrumb">
-  <li class="breadcrumb-item"><a [routerLink]="">Home</a></li>
+  <li class="breadcrumb-item"><a [routerLink]="'/ml/datapreparation'">Home</a></li>
   <li [ngClass]="{'breadcrumb-item':true,'active':last}" *ngFor="let breadcrumb of breadcrumbs; let last=last;">
-      <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+      <a *ngIf="!last" [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+      <span *ngIf="last">{{breadcrumb.label}}</span>
     </li>
 </ol>
   `
@@ -41,7 +42,6 @@ export class BreadcrumbComponent implements OnInit {
   }
   private getBreadcrumbs(route: ActivatedRoute, url: string = "", breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
-
     //get the child routes
     let children: ActivatedRoute[] = route.children;
 

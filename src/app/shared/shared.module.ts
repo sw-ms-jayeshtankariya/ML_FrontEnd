@@ -5,6 +5,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { PageNotFoundComponent } from './404/404.component';
 import { LogoutComponent } from './logout.component';
+import { LocalStorageService } from '../_services/localstorageservice.component';
 const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [LocalStorageService],
   exports: [BreadcrumbComponent]
 })
 export class SharedModule { }

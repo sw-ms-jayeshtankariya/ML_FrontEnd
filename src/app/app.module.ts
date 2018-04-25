@@ -27,7 +27,7 @@ const routes: Routes = [
   ],
   imports: [
     // routing,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { enableTracing: true,useHash:true }),
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     SharedModule,

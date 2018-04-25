@@ -21,6 +21,10 @@ import { SharedModule } from '../shared/shared.module';
 import { SaveUserComponent } from './users/user.save.component';
 import { ConfirmationModalComponent } from '../shared/confirmationmodal.component';
 import { SettingsComponent } from '../shared/settings/settings.component';
+import { ReviewDataComponent } from './data-preparation/review-data/review-data.component';
+import { CleanDataComponent } from './data-preparation/clean-data/clean-data.component';
+import { PreparedDataComponent } from './data-preparation/prepared-data/prepared-data.component';
+import { SalesInfoComponent } from './data-preparation/review-data/sales-info/sales-info.component';
 const routes: Routes = [
     {
         path: 'ml', component: MLComponent, children: [
@@ -58,10 +62,11 @@ const routes: Routes = [
             }
         ]
     },
+    {path:'ml', redirectTo:'/datapreparation',pathMatch:'full'}
 ];
 
 @NgModule({
-    entryComponents: [SalesInformationComponent, TableSelectionComponent,ConfirmationModalComponent],
+    entryComponents: [SalesInfoComponent, TableSelectionComponent,ConfirmationModalComponent],
     declarations: [
         ConfirmationModalComponent,
         MLComponent,
@@ -71,7 +76,11 @@ const routes: Routes = [
         NotificationsComponent,
         SalesInformationComponent,
         TableSelectionComponent,
-        SaveUserComponent
+        SaveUserComponent,
+        ReviewDataComponent,
+        CleanDataComponent,
+        PreparedDataComponent,
+        SalesInfoComponent
     ],
     imports: [
         BrowserModule,

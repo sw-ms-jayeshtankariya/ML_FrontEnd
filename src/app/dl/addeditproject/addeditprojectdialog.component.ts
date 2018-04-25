@@ -30,6 +30,6 @@ export class AddeditprojectdialogComponent implements OnInit {
   }
 
   saveProject() {
-    
+      this.dialogRef.close();
   }
 }

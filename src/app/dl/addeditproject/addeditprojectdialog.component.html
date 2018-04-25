@@ -4,7 +4,7 @@
 </div>
 
 <div mat-dialog-content>
-  <form [formGroup]="projectForm" (ngSubmit)="projectForm.valid && saveProject(projectForm.value)" novalidate>
+  <form [formGroup]="projectForm" (ngSubmit)="projectForm.valid && saveProject(projectForm.value)" novalidate #pForm="ngForm">
     <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
     <input type="hidden" formControlName="id">
     <div class="row-fluid">
@@ -13,7 +13,7 @@
           <span class="tx-danger">*</span>
         </label>
         <input id="name" class="form-control" name="name" placeholder="Enter Project Name" formControlName="name" type="text" required>
-        <small *ngIf="!projectForm.controls.name.valid" class="text-danger">
+        <small *ngIf="(projectForm.controls.name.dirty || projectForm.controls.name.touched) && !projectForm.controls.name.valid" class="text-danger">
           Required.
         </small>
       </div>
@@ -22,16 +22,17 @@
           <span class="tx-danger">*</span>
         </label>
         <textarea id="desc" class="form-control" name="desc" placeholder="Enter Description" formControlName="desc" rows="3"></textarea>
-        <small *ngIf="!projectForm.controls.desc.valid" class="text-danger">
+        <small *ngIf="(projectForm.controls.desc.dirty || projectForm.controls.desc.touched) && !projectForm.controls.desc.valid" class="text-danger">
           Required.
         </small>
       </div>
       <!-- form-group -->
     </div>
   </form>
-  <pre>Content: <br>{{projectForm.value | json}}</pre>
+  <!-- <pre>Content: <br>{{projectForm.value | json}}</pre> -->
 </div>
 <div mat-dialog-actions>
-  <button matButton type="button" (click)="saveProject()" class="btn btn-outline-primary" cdkForcusInitial>Save</button>
-  <button matButton type="button" class="btn btn-outline-danger">Cancel</button>
+  <button matButton type="button" [disabled]="!pForm.form.valid" (click)="saveProject()" class="btn btn-outline-primary" cdkForcusInitial>Save</button>
+  <button matButton type="button" (click)="pForm.resetForm({})" class="btn btn-outline-danger">Reset</button>
+  <button matButton type="button" (click)="onCancelClick()" class="btn btn-outline-danger">Cancel</button>
 </div>

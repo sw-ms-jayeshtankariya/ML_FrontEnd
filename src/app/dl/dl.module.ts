@@ -14,7 +14,7 @@ import { SettingsComponent } from '../shared/settings/settings.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AddEditProjectComponent } from './addeditproject/addeditproject.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddeditprojectdialogComponent } from './addeditprojectdialog/addeditprojectdialog.component';
+import { AddeditprojectdialogComponent } from './addeditproject/addeditprojectdialog.component';
 const routes: Routes = [
   {
     path: 'dl', component: DLComponent, children: [

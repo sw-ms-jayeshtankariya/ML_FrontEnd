@@ -1,7 +1,8 @@
 <div class="slim-header">
   <div class="container">
     <div class="slim-header-left">
-      <h2 class="slim-logo">
+      <a id="btnMenuToggle" class="nav-link" href="javascript:void()" (click)="sidenav.toggle()"><i class="fa fa-ellipsis-v fa-2x"></i></a>
+      <h2 class="slim-logo" style="margin-left: 10px">
         <a href="/">
           <img src="./assets/img/logo@2x.png" width="143">
         </a>
@@ -207,9 +208,9 @@
   <!-- container -->
 </div>
 <!-- slim-header -->
-<button id="btnMenuToggle" class="hamburger-menu" (click)="sidenav.toggle()">
+<!-- <button id="btnMenuToggle" class="hamburger-menu" (click)="sidenav.toggle()">
     <i [ngClass]="{'fa':true,'fa-chevron-right':opened,'fa-chevron-left':!opened}" aria-hidden="true"></i>
-</button>
+</button> -->
 <mat-sidenav-container class="example-container" id="menuSideNavContainer">
   <mat-sidenav id="menuSidenav" #sidenav mode="side" [(opened)]="opened">
     <!-- <mat-toolbar class="md-theme-indigo" layout="row">

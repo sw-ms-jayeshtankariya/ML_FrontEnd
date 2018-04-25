@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
-import { AddeditprojectdialogComponent } from '../addeditprojectdialog/addeditprojectdialog.component';
+import { AddeditprojectdialogComponent } from './addeditprojectdialog.component';
 import { DOCUMENT } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from '../../_models/project';
@@ -56,7 +56,7 @@ export class AddEditProjectComponent implements OnInit {
 
     this.dialogRef.afterClosed().subscribe((result: string) => {
       this.dialogRef = null;
-      this.router.navigate(['myprojects']);
+      this.router.navigate(['/dl/myprojects']);
       this.doc.body.classList.remove('no-scroll');
     });
   }

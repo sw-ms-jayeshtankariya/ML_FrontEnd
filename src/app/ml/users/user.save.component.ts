@@ -65,4 +65,8 @@ export class SaveUserComponent implements OnInit {
     ngOnInit(): void {
 
     }
+
+    saveUserInfo(){
+        
+    }
 }
