@@ -6,7 +6,6 @@ import { DataPreparationComponent } from './data-preparation/data.preparation.co
 import { ModelsComponent } from './models/models.component';
 import { UsersComponent } from './users/users.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { SalesInformationComponent } from './data-preparation/salesinfo.component';
 import { TableSelectionComponent } from './data-preparation/table.selection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
@@ -74,7 +73,6 @@ const routes: Routes = [
         ModelsComponent,
         UsersComponent,
         NotificationsComponent,
-        SalesInformationComponent,
         TableSelectionComponent,
         SaveUserComponent,
         ReviewDataComponent,

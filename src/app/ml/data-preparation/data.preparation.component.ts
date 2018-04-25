@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
 import { MatDialog, MatStepper } from '@angular/material';
-import { SalesInformationComponent } from './salesinfo.component';
 import { Title } from '@angular/platform-browser';
 import { TableSelectionComponent } from './table.selection.component';
 import { TableData } from '../../_models/tabledata';
