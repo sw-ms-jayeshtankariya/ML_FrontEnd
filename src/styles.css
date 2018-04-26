@@ -16,7 +16,7 @@ app-app-layout{min-height: 100vh; display:flex; -webkit-box-orient:vertical!impo
 
 /***Footer***/
 
-.slim-footer{  padding: 0; }
+.slim-footer{  padding: 0; margin-top: 0; }
 site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:end!important;-ms-flex-align:end!important;align-items:flex-end!important}
 .copy-right{ color: #ffffff; font-size: 16px; margin-top: 20px;}
 .slim-footer{background: transparent; border: none !important;  }
@@ -133,6 +133,7 @@ site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:en
 .dataTables_length,.dataTables_wrapper .dataTables_filter{white-space: nowrap; padding-right:0; }
 .dataTables_filter input{display: inline-block; width: inherit}
 .mat-drawer-container-inner{ min-height: inherit !important;}
+.mat-drawer-content{ margin-bottom:0; padding-bottom: 15px;}
 .mat-drawer-content .mat-drawer-content{ overflow: inherit;}
 .tab-side-nav{width: 260px !important;  padding-right: 15px;}
 .tab-side-toggle-btn{ padding:0; text-align: center;}
@@ -179,7 +180,7 @@ site-footer{ margin-top: auto; -webkit-box-align:end!important;-moz-box-align:en
 .mat-step-header .mat-step-label{text-transform: uppercase; color: #767d87;}
 .mat-step-icon-not-touched,.mat-step-header[ng-reflect-selected="true"] .mat-step-icon{align-items: baseline !important; }
 .mat-step-header:first-child {padding-left: 14px;}
-
+.tab-side-toggle-btn:focus{ box-shadow: none !important;}
 
 @media (max-width:1200px) {
     #btnMenuToggle{ display: block}
