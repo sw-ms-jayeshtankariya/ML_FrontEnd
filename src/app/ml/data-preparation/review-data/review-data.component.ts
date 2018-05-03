@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output,EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { TableData } from '../../../_models/tabledata';
 import { Subject } from 'rxjs';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatStepper } from '@angular/material';
 import { SalesInfoComponent } from './sales-info/sales-info.component';
 import { LocalStorageService } from '../../../_services/localstorageservice.component';
+import { Router } from '@angular/router';
+import { DPSharedService } from '../data.preparation.shared';
 
 @Component({
   selector: 'review-data',
@@ -14,11 +16,13 @@ import { LocalStorageService } from '../../../_services/localstorageservice.comp
 export class ReviewDataComponent implements OnInit {
   @ViewChild('tblReviewData')
   private tblReviewData: DataTables.DataTables;
+    
   dtOptions: DataTables.Settings = {};
   tableData: TableData[] = [];
   dtTrigger: Subject<any> = new Subject();
     
-  constructor(private http: Http,public dialog: MatDialog,private _local:LocalStorageService) { }
+  constructor(private http: Http,public dialog: MatDialog,private _service:DPSharedService,
+    private _local:LocalStorageService,private _router:Router) { }
 
   ngOnInit() {
     this.dtOptions = {
@@ -50,5 +54,9 @@ export class ReviewDataComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  moveNext(){
+    this._service.emitChange("cdata");
   }
 }

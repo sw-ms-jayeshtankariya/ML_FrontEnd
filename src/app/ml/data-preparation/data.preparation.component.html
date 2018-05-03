@@ -1,7 +1,7 @@
 <div class="mg-t-15">
     <mat-horizontal-stepper #datapreparationstepper [linear]="true">
         <mat-step label="Data Preparation">
-                <form [formGroup]="dataConnectionForm" (ngSubmit)="dataConnectionForm.valid && submitRegistration(dataConnectionForm.value)"
+            <form [formGroup]="dataConnectionForm" (ngSubmit)="dataConnectionForm.valid"
                 novalidate>
                 <!-- <pre>Content: <br>{{dataConnectionForm.value | json}}</pre> -->
                 <div class="row">
@@ -254,13 +254,16 @@
             </form>
         </mat-step>
         <mat-step label="Review Data">
-            <review-data></review-data>
+            <router-outlet name="rdata"></router-outlet>
+            <!-- <review-data></review-data> -->
         </mat-step>
         <mat-step label="Clean Data">
-            <clean-data></clean-data>
+            <router-outlet name="cdata"></router-outlet>
+            <!-- <clean-data></clean-data> -->
         </mat-step>
         <mat-step label="Prepared Data">
-            <prepared-data></prepared-data>
+            <router-outlet name="pdata"></router-outlet>
+            <!-- <prepared-data></prepared-data> -->
         </mat-step>
     </mat-horizontal-stepper>
 </div>

@@ -7,7 +7,7 @@
             <div class="col-md-8">
             </div>
             <div class="col-md-2">
-                <button matStepperNext class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
             </div>
         </div>
         <mat-sidenav-container class="example-container mat-drawer-container-inner">
@@ -18,7 +18,15 @@
                             <h5 class="card-title tx-dark tx-medium mg-b-10">Clean Data</h5>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="firstname" placeholder="Select Column to clean">
+                            <select class="form-control" placeholder="Select Column to clean">
+                                <option value="Var">Var</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Customer">Customer</option>
+                                <option value="(Digital-Search-Billed)">(Digital-Search-Billed)</option>
+                                <option value="(Digital-Search_Clicks)">(Digital-Search_Clicks)</option>
+                                <option value="(Digital - Search - Impressions)">(Digital - Search - Impressions)</option>
+                                <option value="(Digital - Search)">(Digital - Search)</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="text" name="firstname" placeholder="Mode of cleaning">
@@ -46,7 +54,7 @@
                 </button>
 
                 <div class="table-wrapper">
-                    <table datatable [dtOptions]="dtCleanOpt" [dtTrigger]="dtCleanTrg" #tblCleanData class="table table-sm responsive nowrap">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="tblCleanData" #tblCleanData class="table table-sm responsive nowrap">
                         <thead>
                             <tr>
                                 <th>Var</th>

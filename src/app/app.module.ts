@@ -15,7 +15,7 @@ import { LoginComponent } from './registration/login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [    
   {path:'', redirectTo:'/registration/login',pathMatch:'full'},
-  {path:'**', redirectTo:'/pagenotfound'},
+  // {path:'**', redirectTo:'/pagenotfound'},
   { path: 'ml', loadChildren: './ml/ml.module' },  
   { path: 'dl', loadChildren: './dl/dl.module' },  
   { path: 'login', loadChildren: './registration/registration.module' }
@@ -27,7 +27,9 @@ const routes: Routes = [
   ],
   imports: [
     // routing,
-    RouterModule.forRoot(routes, { enableTracing: true,useHash:true }),
+    RouterModule.forRoot(routes
+      //, { enableTracing: true,useHash:true }
+    ),
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     SharedModule,

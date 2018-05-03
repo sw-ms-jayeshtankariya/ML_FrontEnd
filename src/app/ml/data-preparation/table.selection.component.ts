@@ -12,7 +12,7 @@ export class TableSelectionComponent {
     selectedTable: string;
     dtTrigger: Subject<any> = new Subject();
     onAdd = new EventEmitter();
-    
+    dtOptions: DataTables.Settings = {};
     @ViewChild('tbltblList')
     private tbltblList: DataTables.DataTables;
 
@@ -26,6 +26,10 @@ export class TableSelectionComponent {
         private http: Http, private snack:SSnackBar) {
         this.setTitle("Select Table")
         this.selectedTable = "";
+        this.dtOptions = {
+            pageLength: 5,
+            autoWidth:false
+          };
     }
 
     onCancelClick():void{

@@ -218,7 +218,7 @@
                   </mat-toolbar> -->
     <ul class="side-menu-list">
       <li>
-        <a [routerLink]="['/ml/datapreparation']">
+        <a [routerLink]="['/ml/datapreparation',{outlets: {'rdata': ['reviewdata'], 'cdata': ['cleandata'], 'pdata': ['prepareddata']}}]">
           <span class="menu-icon menu-icon1"></span> Data Preparation</a>
       </li>
       <li>
@@ -244,7 +244,7 @@
     <breadcrumb></breadcrumb>
     <div class="slim-mainpanel">
       <div class="container">
-        <div class="slim-pageheader" *ngIf="isToShow">
+        <div class="slim-pageheader" *ngIf="false">
           <pre>Content: <br>{{breadcrumbs.value | json}}</pre>
 
           <h6 class="slim-pagetitle">Dashboard 01</h6>

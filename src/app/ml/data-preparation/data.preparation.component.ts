@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Testability } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
-import { MatDialog, MatStepper } from '@angular/material';
+import { MatDialog, MatStepper, _countGroupLabelsBeforeOption } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { TableSelectionComponent } from './table.selection.component';
 import { TableData } from '../../_models/tabledata';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DPSharedService } from './data.preparation.shared';
 
 @Component({
   templateUrl: './data.preparation.component.html',
@@ -35,6 +36,7 @@ export class DataPreparationComponent implements OnInit {
         const sub = dialogRef.componentInstance.onAdd.subscribe((data) => {
           this.selectedTable = data;
           this.myStepper.next();
+          this._router.navigate([this.URL, { outlets: { 'rdata': ['reviewdata'] } }]);
         });
         dialogRef.afterClosed().subscribe(result => {
           console.log(result);
@@ -67,14 +69,33 @@ export class DataPreparationComponent implements OnInit {
     }
     return model;
   }
-  constructor(private _fb: FormBuilder, private http: Http,
-    public dialog: MatDialog, private titleService: Title, private _router: Router) {
+  _url: string = "";
+
+  get URL() {
+    if (this._url == "") {
+      this._url = this._router.url;
+    }
+    return this._url;
+  }
+
+  constructor(private _fb: FormBuilder, private http: Http, private _commService: DPSharedService,
+    public dialog: MatDialog, private titleService: Title, private _router: Router,private route:ActivatedRoute) {
     this.dataConnectionForm = _fb.group({
       connectionType: this._fb.control(this.CONNECTION_TYPE.FTP, Validators.required),
       ftp: this._fb.group(this.initFTPConnection()),
       database: this._fb.group(this.initDatabaseConnection())
     });
-    this.setTitle("Data Preparation")
+    this.setTitle("Data Preparation");
+    _commService.changeEmitted$.subscribe((text) => {
+      this.myStepper.next();
+      if(text==='cdata')
+      {
+        this._router.navigate([this.URL, { outlets: { 'cdata': ['cleandata'] } }]);
+      }
+      else{
+        this._router.navigate([this.URL, { outlets: { 'pdata': ['prepareddata'] } }]);
+      }
+    })
   }
 
   public setTitle(newTitle: string) {
@@ -95,6 +116,11 @@ export class DataPreparationComponent implements OnInit {
     FTP: 'ftp',
     DATABASE: 'database'
   };
+
+  onNotify(tag: string): void {
+    alert("test");
+  }
+
   subscribePaymentTypeChanges() {
     // controls
     const cnCtrl = (<any>this.dataConnectionForm).controls.connectionType;
@@ -131,6 +157,8 @@ export class DataPreparationComponent implements OnInit {
       }
 
     });
+
+
   }
   public setConnectionType(type: string) {
     // update payment method type value

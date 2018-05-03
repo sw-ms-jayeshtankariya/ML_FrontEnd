@@ -24,6 +24,7 @@ import { ReviewDataComponent } from './data-preparation/review-data/review-data.
 import { CleanDataComponent } from './data-preparation/clean-data/clean-data.component';
 import { PreparedDataComponent } from './data-preparation/prepared-data/prepared-data.component';
 import { SalesInfoComponent } from './data-preparation/review-data/sales-info/sales-info.component';
+import { DPSharedService } from './data-preparation/data.preparation.shared';
 const routes: Routes = [
     {
         path: 'ml', component: MLComponent, children: [
@@ -31,6 +32,17 @@ const routes: Routes = [
                 path: 'datapreparation', component: DataPreparationComponent, data: {
                     breadcrumb: 'Data Preparation'
                 }
+                , children: [
+                    { path: 'reviewdata', component: ReviewDataComponent, data: { breadcrumb: 'Review Data' },outlet:'rdata'},
+                    {
+                        path: 'cleandata', component: CleanDataComponent, data: {
+                            breadcrumb: 'Clean Data'
+                        },outlet:'cdata'
+                    },{
+                        path: 'prepareddata', component: PreparedDataComponent, data: {
+                            breadcrumb: 'Prepared Data'
+                        },outlet:'pdata'
+                    }]
             },
             {
                 path: 'models', component: ModelsComponent, data: {
@@ -101,6 +113,6 @@ const routes: Routes = [
         MatSnackBarModule,
         SharedModule
     ],
-    providers: [SSnackBar]
+    providers: [SSnackBar,DPSharedService]
 })
 export class MLModule { }

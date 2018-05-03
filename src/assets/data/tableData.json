@@ -70,4 +70,112 @@
     "missing_value":"string",
     "feature_type":"string"
 	}
+},{
+	"var": "5",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "6",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "7",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "8",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "9",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
+},{
+	"var": "10",
+	"sales": "Jayesh",
+	"customers": "Jayesh",
+	"digital_search_billed": "Jayesh",
+	"digital_search_clicks": "Jayesh",
+	"digital_search_impressions": "Jayesh",
+	"digital_Search": "Jayesh",
+	"sales_info":{
+		"mean":"string",
+    "median":"string",  
+    "min":"string",
+    "max":"string",
+    "std_deviation":"string",
+    "unique_value":"string",
+    "missing_value":"string",
+    "feature_type":"string"
+	}
 }]

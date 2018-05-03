@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { LocalStorageService } from '../../../_services/localstorageservice.component';
 import { TableData } from '../../../_models/tabledata';
 import { Subject } from 'rxjs';
+import { DPSharedService } from '../data.preparation.shared';
 
 @Component({
   selector: 'clean-data',
@@ -11,17 +12,26 @@ import { Subject } from 'rxjs';
 export class CleanDataComponent implements OnInit {
   @ViewChild('tblCleanData')
   private tblCleanData: DataTables.DataTables;
+
   dtCleanOpt: DataTables.Settings = {};
+
   tableData: TableData[] = [];
+
   dtCleanTrg: Subject<any> = new Subject();
-  constructor(private _local: LocalStorageService) { }
+  constructor(private _local: LocalStorageService,private _service:DPSharedService) { }
+  @Input()
+  opened:boolean=false;
 
   ngOnInit() {
-    debugger;
     this.dtCleanOpt = {
       pageLength: 5
     };
     this.tableData = JSON.parse(this._local.getItem("reviewdata"));
+    this.dtCleanTrg.next();
   }
 
+  moveNext(){
+    this._local.setItem("cleandata",JSON.stringify(this.tableData));
+    this._service.emitChange("pdata");
+  }
 }
