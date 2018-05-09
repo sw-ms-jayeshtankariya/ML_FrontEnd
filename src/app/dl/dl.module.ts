@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: 'myprojects', component: MyProjectsComponent, data: {
           breadcrumb: 'My Projects'
-        },children:[{
+        }, children: [{
           path: 'save/:id', component: AddEditProjectComponent, data: {
             breadcrumb: 'Save Project'
           }
@@ -37,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  entryComponents:[AddeditprojectdialogComponent],
+  entryComponents: [AddeditprojectdialogComponent],
   declarations: [
     DLComponent,
     MyProjectsComponent,
