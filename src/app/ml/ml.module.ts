@@ -33,15 +33,15 @@ const routes: Routes = [
                     breadcrumb: 'Data Preparation'
                 }
                 , children: [
-                    { path: 'reviewdata', component: ReviewDataComponent, data: { breadcrumb: 'Review Data' },outlet:'rdata'},
+                    { path: 'reviewdata', component: ReviewDataComponent, data: { breadcrumb: 'Review Data' }, outlet: 'rdata' },
                     {
                         path: 'cleandata', component: CleanDataComponent, data: {
                             breadcrumb: 'Clean Data'
-                        },outlet:'cdata'
-                    },{
+                        }, outlet: 'cdata'
+                    }, {
                         path: 'prepareddata', component: PreparedDataComponent, data: {
                             breadcrumb: 'Prepared Data'
-                        },outlet:'pdata'
+                        }, outlet: 'pdata'
                     }]
             },
             {
@@ -73,11 +73,11 @@ const routes: Routes = [
             }
         ]
     },
-    {path:'ml', redirectTo:'/datapreparation',pathMatch:'full'}
+    { path: 'ml', redirectTo: '/datapreparation', pathMatch: 'full' }
 ];
 
 @NgModule({
-    entryComponents: [SalesInfoComponent, TableSelectionComponent,ConfirmationModalComponent],
+    entryComponents: [SalesInfoComponent, TableSelectionComponent, ConfirmationModalComponent],
     declarations: [
         ConfirmationModalComponent,
         MLComponent,
@@ -113,6 +113,6 @@ const routes: Routes = [
         MatSnackBarModule,
         SharedModule
     ],
-    providers: [SSnackBar,DPSharedService]
+    providers: [SSnackBar, DPSharedService]
 })
 export class MLModule { }

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PreparedDataComponent } from './prepared-data.component';
 
-describe('PreparedDataComponent', () => {
+describe('PreparedData Component', () => {
   let component: PreparedDataComponent;
   let fixture: ComponentFixture<PreparedDataComponent>;
 

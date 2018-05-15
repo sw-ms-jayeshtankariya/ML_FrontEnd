@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, Testability } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+// tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 import { MatDialog, MatStepper, _countGroupLabelsBeforeOption } from '@angular/material';
 import { Title } from '@angular/platform-browser';
@@ -17,9 +18,15 @@ import { DPSharedService } from './data.preparation.shared';
 })
 export class DataPreparationComponent implements OnInit {
   selectedTable: string;
+  title = 'app';
   events = [];
   @ViewChild('datapreparationstepper') private myStepper: MatStepper;
   dataConnectionForm: FormGroup;
+
+  public CONNECTION_TYPE = {
+    FTP: 'ftp',
+    DATABASE: 'database'
+  };
   ngOnInit(): void {
     this.subscribePaymentTypeChanges();
   }
@@ -28,7 +35,7 @@ export class DataPreparationComponent implements OnInit {
     this.http.get('assets/data/tableList.json')
       .subscribe(tData => {
         // Calling the DT trigger to manually render the table
-        let dialogRef = this.dialog.open(TableSelectionComponent, {
+        const dialogRef = this.dialog.open(TableSelectionComponent, {
           width: 'auto',
           maxWidth: '20vw',
           data: tData.json()
@@ -54,7 +61,7 @@ export class DataPreparationComponent implements OnInit {
       databaseName: ['', Validators.required],
       userName: ['', Validators.required],
       passWord: ['', Validators.required]
-    }
+    };
     return model;
   }
   initFTPConnection() {
@@ -66,59 +73,55 @@ export class DataPreparationComponent implements OnInit {
       userName: ['', Validators.required],
       passWord: ['', Validators.required],
       file: ['', Validators.required]
-    }
+    };
     return model;
   }
-  _url: string = "";
+  // tslint:disable-next-line:member-ordering
+  _url = '';
 
   get URL() {
-    if (this._url == "") {
+    if (this._url === '') {
       this._url = this._router.url;
     }
     return this._url;
   }
 
   constructor(private _fb: FormBuilder, private http: Http, private _commService: DPSharedService,
-    public dialog: MatDialog, private titleService: Title, private _router: Router,private route:ActivatedRoute) {
+    public dialog: MatDialog, private titleService: Title, private _router: Router, private route: ActivatedRoute) {
     this.dataConnectionForm = _fb.group({
       connectionType: this._fb.control(this.CONNECTION_TYPE.FTP, Validators.required),
       ftp: this._fb.group(this.initFTPConnection()),
       database: this._fb.group(this.initDatabaseConnection())
     });
-    this.setTitle("Data Preparation");
+    this.setTitle('Data Preparation');
     _commService.changeEmitted$.subscribe((text) => {
       this.myStepper.next();
-      if(text==='cdata')
-      {
+      if (text === 'cdata') {
         this._router.navigate([this.URL, { outlets: { 'cdata': ['cleandata'] } }]);
-      }
-      else{
+      } else {
         this._router.navigate([this.URL, { outlets: { 'pdata': ['prepareddata'] } }]);
       }
-    })
+    });
   }
 
   public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
   }
 
-  title = 'app';
+
   public loadScript(url: string) {
-    let body = <HTMLDivElement>document.body;
-    let script = document.createElement('script');
+    const body = <HTMLDivElement>document.body;
+    const script = document.createElement('script');
     script.innerHTML = '';
     script.src = '';
     script.async = true;
     script.defer = true;
     body.appendChild(script);
   }
-  public CONNECTION_TYPE = {
-    FTP: 'ftp',
-    DATABASE: 'database'
-  };
+
 
   onNotify(tag: string): void {
-    alert("test");
+    alert('test');
   }
 
   subscribePaymentTypeChanges() {
@@ -169,7 +172,7 @@ export class DataPreparationComponent implements OnInit {
 
 // SINGLE FIELD VALIDATORS
 export function emailValidator(control: FormControl): { [key: string]: any } {
-  var emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+  const emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
   if (control.value && !emailRegexp.test(control.value)) {
     return { invalidEmail: true };
   }
@@ -178,13 +181,13 @@ export function emailValidator(control: FormControl): { [key: string]: any } {
 // FORM GROUP VALIDATORS
 export function matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
   return (group: FormGroup): { [key: string]: any } => {
-    let password = group.controls[passwordKey];
-    let confirmPassword = group.controls[confirmPasswordKey];
+    const password = group.controls[passwordKey];
+    const confirmPassword = group.controls[confirmPasswordKey];
 
     if (password.value !== confirmPassword.value) {
       return {
         mismatchedPasswords: true
       };
     }
-  }
+  };
 }

@@ -15,6 +15,14 @@ import { DataTablesModule } from 'angular-datatables';
 import { AddEditProjectComponent } from './addeditproject/addeditproject.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddeditprojectdialogComponent } from './addeditproject/addeditprojectdialog.component';
+import { ConfigureProjectComponent } from './configure-project/configure-project.component';
+import { BasicInfoComponent } from './configure-project/basic-info/basic-info.component';
+import { FtpconfigComponent } from './configure-project/ftpconfig/ftpconfig.component';
+import { DatareviewComponent } from './configure-project/datareview/datareview.component';
+import { ModeldesignComponent } from './configure-project/modeldesign/modeldesign.component';
+import { HyperparamComponent } from './configure-project/hyperparam/hyperparam.component';
+import { TrainingComponent } from './configure-project/training/training.component';
+import { ResultsComponent } from './configure-project/results/results.component';
 const routes: Routes = [
   {
     path: 'dl', component: DLComponent, children: [
@@ -26,6 +34,46 @@ const routes: Routes = [
             breadcrumb: 'Save Project'
           }
         }]
+      },
+      {
+        path: 'configure-project/:id', component: ConfigureProjectComponent, data: {
+          breadcrumb: 'Configure Project'
+        }, children: [{
+          path: 'basic-info', component: BasicInfoComponent, data: {
+            breadcrumb: 'Basic Information'
+          }, outlet: 'basicinfo'
+        },
+        {
+          path: 'ftp-config', component: FtpconfigComponent, data: {
+            breadcrumb: 'FTP Configuration'
+          }, outlet: 'ftpconfig'
+        },
+        {
+          path: 'data-review', component: DatareviewComponent, data: {
+            breadcrumb: 'Review FTP Data'
+          }, outlet: 'datareview'
+        },
+        {
+          path: 'model-design', component: ModeldesignComponent, data: {
+            breadcrumb: 'Design Model'
+          }, outlet: 'modeldesign'
+        },
+        {
+          path: 'hyper-param', component: HyperparamComponent, data: {
+            breadcrumb: 'Hyper Parameters'
+          }, outlet: 'hyperparam'
+        },
+        {
+          path: 'ting', component: TrainingComponent, data: {
+            breadcrumb: 'Training'
+          }, outlet: 'training'
+        },
+        {
+          path: 'rsults', component: ResultsComponent, data: {
+            breadcrumb: 'Results'
+          }, outlet: 'results'
+        }
+      ]
       },
       {
         path: 'settings', component: SettingsComponent, data: {
@@ -42,7 +90,15 @@ const routes: Routes = [
     DLComponent,
     MyProjectsComponent,
     AddEditProjectComponent,
-    AddeditprojectdialogComponent
+    AddeditprojectdialogComponent,
+    ConfigureProjectComponent,
+    BasicInfoComponent,
+    FtpconfigComponent,
+    DatareviewComponent,
+    ModeldesignComponent,
+    HyperparamComponent,
+    TrainingComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

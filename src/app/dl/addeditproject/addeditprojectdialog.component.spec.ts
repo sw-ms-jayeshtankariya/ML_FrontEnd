@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddeditprojectdialogComponent } from './addeditprojectdialog.component';
 
-describe('AddeditprojectdialogComponent', () => {
+describe('Add/Edit Project Dialog Component', () => {
   let component: AddeditprojectdialogComponent;
   let fixture: ComponentFixture<AddeditprojectdialogComponent>;
 

@@ -1,0 +1,90 @@
+<div class="mg-t-15">
+  <mat-horizontal-stepper #projectconfig [linear]="true">
+    <mat-step label="Basic Info">
+        <div class="row">
+            <div class="col-md-10">
+            </div>
+            <div class="col-md-2">
+                <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <p>
+            basic-info works!
+          </p>
+    </mat-step>
+    <mat-step label="FTP Config">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <router-outlet name="ftpconfig"></router-outlet>
+    </mat-step>
+    <mat-step label="Data Preview">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <router-outlet name="datareview"></router-outlet>
+    </mat-step>
+    <mat-step label="Model Design">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <router-outlet name="modeldesign"></router-outlet>
+    </mat-step>
+    <mat-step label="Hyper Parameter">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <router-outlet name="hyperparam"></router-outlet>
+    </mat-step>
+    <mat-step label="Training">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+        </div>
+        <router-outlet name="training"></router-outlet>
+    </mat-step>
+    <mat-step label="Results">
+        <div class="row">
+            <div class="col-md-2">
+                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            </div>
+        </div>
+        <router-outlet name="results"></router-outlet>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+<!-- section-wrapper -->

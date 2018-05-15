@@ -8,7 +8,7 @@ export class DPSharedService {
     // Observable string streams
     changeEmitted$ = this.emitChangeSource.asObservable();
     // Service message commands
-    emitChange(value:any) {
+    emitChange(value: any) {
         this.emitChangeSource.next(value);
     }
 }

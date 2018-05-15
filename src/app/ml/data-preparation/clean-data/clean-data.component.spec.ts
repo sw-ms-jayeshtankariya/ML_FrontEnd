@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CleanDataComponent } from './clean-data.component';
 
-describe('CleanDataComponent', () => {
+describe('CleanData Component', () => {
   let component: CleanDataComponent;
   let fixture: ComponentFixture<CleanDataComponent>;
 
