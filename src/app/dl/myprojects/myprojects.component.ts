@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { Project } from "../../_models/project";
-import { Subject } from "rxjs";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Project } from '../../_models/project';
+// tslint:disable-next-line:import-blacklist
+import { Subject } from 'rxjs';
+// tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
-import { Http, Response } from "@angular/http";
+import { Http, Response } from '@angular/http';
 
 @Component({
     templateUrl: './myprojects.component.html',

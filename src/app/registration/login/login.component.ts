@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -12,8 +13,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  constructor(private titleService: Title,private _router:Router) {
-    this.setTitle("Login Here");
+  constructor(private titleService: Title, private _router: Router) {
+    this.setTitle('Login Here');
   }
 
   public setTitle(newTitle: string) {
@@ -22,6 +23,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(e: Event) {
     e.preventDefault();
-    this._router.navigateByUrl("/registration/choosemodule");
-  } 
+    this._router.navigateByUrl('/registration/choosemodule');
+  }
 }

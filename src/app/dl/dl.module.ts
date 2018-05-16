@@ -16,7 +16,6 @@ import { AddEditProjectComponent } from './addeditproject/addeditproject.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddeditprojectdialogComponent } from './addeditproject/addeditprojectdialog.component';
 import { ConfigureProjectComponent } from './configure-project/configure-project.component';
-import { BasicInfoComponent } from './configure-project/basic-info/basic-info.component';
 import { FtpconfigComponent } from './configure-project/ftpconfig/ftpconfig.component';
 import { DatareviewComponent } from './configure-project/datareview/datareview.component';
 import { ModeldesignComponent } from './configure-project/modeldesign/modeldesign.component';
@@ -38,11 +37,7 @@ const routes: Routes = [
       {
         path: 'configure-project/:id', component: ConfigureProjectComponent, data: {
           breadcrumb: 'Configure Project'
-        }, children: [{
-          path: 'basic-info', component: BasicInfoComponent, data: {
-            breadcrumb: 'Basic Information'
-          }, outlet: 'basicinfo'
-        },
+        }, children: [
         {
           path: 'ftp-config', component: FtpconfigComponent, data: {
             breadcrumb: 'FTP Configuration'
@@ -92,7 +87,6 @@ const routes: Routes = [
     AddEditProjectComponent,
     AddeditprojectdialogComponent,
     ConfigureProjectComponent,
-    BasicInfoComponent,
     FtpconfigComponent,
     DatareviewComponent,
     ModeldesignComponent,
