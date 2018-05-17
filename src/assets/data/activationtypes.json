@@ -1,0 +1,28 @@
+{
+	"activationtypes" :	[
+		{	"id":1,
+			"title":"Softmax"
+		},
+		{	"id":2,
+			"title":"Softplus"
+		},
+		{	"id":3,
+			"title":"Softsign"
+		},
+		{	"id":4,
+			"title":"Relu"
+		},
+		{	"id":5,
+			"title":"Tanh"
+		},
+		{	"id":6,
+			"title":"Sigmoid"
+		},
+		{	"id":7,
+			"title":"Hard Sigmoid"
+		},
+		{	"id":8,
+			"title":"Linear"
+		}
+	]
+}

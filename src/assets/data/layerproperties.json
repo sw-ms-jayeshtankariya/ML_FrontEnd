@@ -1,0 +1,36 @@
+{
+	"layerprop" :	[
+		{	"id":1,
+			"title":"No Of Filters",
+			"layerid":1
+		},
+		{	"id":2,
+			"title":"Activation Type",
+			"layerid":1
+		},
+		{	"id":3,
+			"title":"Filter Columns",
+			"layerid":2
+		},
+		{	"id":4,
+			"title":"Filter Rows",
+			"layerid":2
+		},
+		{	"id":5,
+			"title":"Fraction to Drop",
+			"layerid":3
+		},
+		{	"id":6,
+			"title":"Output Dimentions",
+			"layerid":4
+		},
+		{	"id":7,
+			"title":"Flatten",
+			"layerid":4
+		},
+		{	"id":8,
+			"title":"Dropout",
+			"layerid":4
+		}
+	]
+}

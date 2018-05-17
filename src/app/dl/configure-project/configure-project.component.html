@@ -1,90 +1,312 @@
 <div class="mg-t-15">
-  <mat-horizontal-stepper #projectconfig [linear]="true">
-    <mat-step label="Basic Info">
-        <div class="row">
-            <div class="col-md-10">
+    <mat-horizontal-stepper #projectconfig [linear]="true">
+        <mat-step label="Basic Info">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="accordion" class="accordion-one" role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                                    class="tx-gray-800 transition collapsed">
+                                    Making a Beautiful CSS3 Button Set
+                                </a>
+                            </div>
+                            <!-- card-header -->
+
+                            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" style="">
+                                <div class="card-body">
+                                    A concisely coded CSS3 button set increases usability across the board, gives you a ton of options, and keeps all the code
+                                    involved to an absolute minimum. Anim pariatur cliche reprehenderit, enim eiusmod high
+                                    life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                    dolor brunch.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingTwo">
+                                <a class="collapsed tx-gray-800 transition" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    Horizontal Navigation Menu Fold Animation
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingThree">
+                                <a class="collapsed tx-gray-800 transition" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Creating CSS3 Button with Rounded Corners
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                                    3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
+                                </div>
+                            </div>
+                            <!-- collapse -->
+                        </div>
+                        <!-- card -->
+                    </div>
+                </div>
+                <div class="col-md-8"></div>
             </div>
-            <div class="col-md-2">
-                <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Model Train :</label>
+                    <br>
+                    <mat-slider thumbLabel></mat-slider>
+                </div>
+                <div class="col-md-4">
+                    <label>Model Validation :</label>
+                    <br>
+                    <mat-slider thumbLabel></mat-slider>
+                </div>
+                <div class="col-md-4">
+                    <label>Model Test Split :</label>
+                    <br>
+                    <mat-slider thumbLabel></mat-slider>
+                </div>
             </div>
-        </div>
-        <p>
-            basic-info works!
-          </p>
-    </mat-step>
-    <mat-step label="FTP Config">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/assets/data/images/adventure-calm-clouds-414171 - Copy (2).jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-boardwalk-boat-132037 - Copy.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-exotic-holiday-248797.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/clouds-country-daylight-371633.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-boardwalk-boat-132037 - Copy.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-exotic-holiday-248797.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-exotic-holiday-248797.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/beach-exotic-holiday-248797.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="col-md-3">
+                    <img src="/assets/data/images/clouds-country-daylight-371633.jpg" class="img-fluid img-thumbnail" alt="">
+                </div>
             </div>
-            <div class="col-md-8">
+
+
+            <form [formGroup]="dataConnection" (ngSubmit)="dataConnection.valid" novalidate>
+                <div class="row">
+                    <div class="col-md-10">
+                    </div>
+                    <div class="col-md-2">
+                        <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">Connection Name:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="connectionname" formControlName="connectionName" class="form-control" name="firstname" placeholder="Enter connection name"
+                                type="text" required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.connectionName.dirty || dataConnection.controls.ftp.controls.connectionName.touched) &&  !dataConnection.controls.ftp.controls.connectionName.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">DataSource:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="datasource" class="form-control" name="lastname" placeholder="Enter datasource" formControlName="dataSource" type="text"
+                                required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.dataSource.dirty || dataConnection.controls.ftp.controls.dataSource.touched) &&  !dataConnection.controls.ftp.controls.dataSource.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">Host Address:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="host" class="form-control" name="lastname" placeholder="Enter Host Address" formControlName="host" type="text"
+                                required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.host.dirty || dataConnection.controls.ftp.controls.host.touched) &&  !dataConnection.controls.ftp.controls.host.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">Port No:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="port" class="form-control" name="lastname" placeholder="Enter Port No" formControlName="port" type="text" required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.port.dirty || dataConnection.controls.ftp.controls.port.touched) &&  !dataConnection.controls.ftp.controls.port.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">User Name:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="username" class="form-control" name="lastname" formControlName="userName" placeholder="Enter Username" type="text"
+                                required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.userName.dirty || dataConnection.controls.ftp.controls.userName.touched) &&  !dataConnection.controls.ftp.controls.userName.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" formGroupName="ftp">
+                            <label class="form-control-label">Password:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="password" class="form-control" name="lastname" formControlName="passWord" placeholder="Enter Password" type="password"
+                                required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.passWord.dirty || dataConnection.controls.ftp.controls.passWord.touched) &&  !dataConnection.controls.ftp.controls.passWord.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div [ngClass]="{'form-group':true,'has-error':false}" formGroupName="ftp">
+                            <label class="form-control-label">File Path:
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <input id="filepath" [ngClass]="{'form-control':true}" formControlName="file" placeholder="Select File" type="file" required>
+                            <small *ngIf="(dataConnection.controls.ftp.controls.file.dirty || dataConnection.controls.ftp.controls.file.touched) &&  !dataConnection.controls.ftp.controls.file.valid"
+                                class="text-danger">
+                                Required.
+                            </small>
+                        </div>
+                        <!-- form-group -->
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-primary btn-block mg-b-10">Test Connection</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step label="FTP Config">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            <router-outlet name="ftpconfig"></router-outlet>
+        </mat-step>
+        <mat-step label="Data Preview">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                </div>
             </div>
-        </div>
-        <router-outlet name="ftpconfig"></router-outlet>
-    </mat-step>
-    <mat-step label="Data Preview">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            <router-outlet name="datareview"></router-outlet>
+        </mat-step>
+        <mat-step label="Model Design">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                </div>
             </div>
-            <div class="col-md-8">
+            <router-outlet name="modeldesign"></router-outlet>
+        </mat-step>
+        <mat-step label="Hyper Parameter">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            <router-outlet name="hyperparam"></router-outlet>
+        </mat-step>
+        <mat-step label="Training">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                </div>
             </div>
-        </div>
-        <router-outlet name="datareview"></router-outlet>
-    </mat-step>
-    <mat-step label="Model Design">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+            <router-outlet name="training"></router-outlet>
+        </mat-step>
+        <mat-step label="Results">
+            <div class="row">
+                <div class="col-md-2">
+                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                </div>
             </div>
-            <div class="col-md-8">
-            </div>
-            <div class="col-md-2">
-                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
-            </div>
-        </div>
-        <router-outlet name="modeldesign"></router-outlet>
-    </mat-step>
-    <mat-step label="Hyper Parameter">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-            </div>
-            <div class="col-md-8">
-            </div>
-            <div class="col-md-2">
-                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
-            </div>
-        </div>
-        <router-outlet name="hyperparam"></router-outlet>
-    </mat-step>
-    <mat-step label="Training">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-            </div>
-            <div class="col-md-8">
-            </div>
-            <div class="col-md-2">
-                <button  (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
-            </div>
-        </div>
-        <router-outlet name="training"></router-outlet>
-    </mat-step>
-    <mat-step label="Results">
-        <div class="row">
-            <div class="col-md-2">
-                <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-            </div>
-        </div>
-        <router-outlet name="results"></router-outlet>
-    </mat-step>
-  </mat-horizontal-stepper>
+            <router-outlet name="results"></router-outlet>
+        </mat-step>
+    </mat-horizontal-stepper>
 </div>
 <!-- section-wrapper -->

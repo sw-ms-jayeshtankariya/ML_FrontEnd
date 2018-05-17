@@ -1,0 +1,36 @@
+{
+	"layersdata" :	[
+		{	"id":1,
+			"title":"Input Layer",
+			"layertypeid":1
+		},
+		{	"id":2,
+			"title":"Output Layer",
+			"layertypeid":1
+		},
+		{	"id":3,
+			"title":"Convolutional 2D",
+			"layertypeid":2
+		},
+		{	"id":4,
+			"title":"Zero Padding-2D",
+			"layertypeid":2
+		},
+		{	"id":5,
+			"title":"Max Pool-2D",
+			"layertypeid":3
+		},
+		{	"id":5,
+			"title":"Fully Connected",
+			"layertypeid":4
+		},
+		{	"id":5,
+			"title":"Flatten",
+			"layertypeid":4
+		},
+		{	"id":5,
+			"title":"Dropout",
+			"layertypeid":4
+		}
+	]
+}

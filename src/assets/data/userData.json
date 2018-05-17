@@ -5,7 +5,9 @@
 	"email": "jt@gmail.com",
 	"contactNo": "6308025127",
 	"role": "Employee",
-	"status": "Active"
+	"status": "Active",
+	"username":"jayesh",
+	"password":"jayesh"
 },{
 		"id": "2",
 	"firstName": "Amit",
@@ -13,7 +15,9 @@
 	"email": "ap@gmail.com",
 	"contactNo": "6308025127",
 	"role": "Data Scientist",
-	"status": "Active"
+	"status": "Active",
+	"username":"jayesh",
+	"password":"jayesh"
 },{
 		"id": "3",
 	"firstName": "Amit",
@@ -21,7 +25,9 @@
 	"email": "as@gmail.com",
 	"contactNo": "6308025127",
 	"role": "Data Scientist",
-	"status": "Inactive"
+	"status": "Inactive",
+	"username":"jayesh",
+	"password":"jayesh"
 },{
 	"id": "4",
 	"firstName": "Dhaval",
@@ -29,7 +35,9 @@
 	"email": "db@gmail.com",
 	"contactNo": "6308025127",
 	"role": "Employee",
-	"status": "Active"
+	"status": "Active",
+	"username":"jayesh",
+	"password":"jayesh"
 },{
 	"id": "5",
 	"firstName": "Kaushik",
@@ -37,5 +45,7 @@
 	"email": "kc@gmail.com",
 	"contactNo": "6308025127",
 	"role": "Employee",
-	"status": "Active"
+	"status": "Active",
+	"username":"jayesh",
+	"password":"jayesh"
 }]

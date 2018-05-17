@@ -6,7 +6,7 @@ import { DLComponent } from './dl.component';
 import {
   MatTabsModule, MatSidenavModule, MatCheckboxModule, MatDialogModule,
   MatFormFieldModule, MatButtonModule, MatCard, MatCardModule, MatStepperModule,
-  MatToolbarModule, MatSelectModule, MatSnackBarModule
+  MatToolbarModule, MatSelectModule, MatSnackBarModule, MatSliderModule
 } from '@angular/material';
 import { BreadcrumbComponent } from '../shared/breadcrumb.component';
 import { SharedModule } from '../shared/shared.module';
@@ -111,6 +111,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatSliderModule,
     SharedModule
   ],
   providers: []

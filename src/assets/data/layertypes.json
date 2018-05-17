@@ -1,0 +1,19 @@
+{
+	"layers" :	[
+		{	"id":1,
+			"title":"Input / Output"
+		},
+		{	"id":2,
+			"title":"Convolutional"
+		},
+		{	"id":3,
+			"title":"Core"
+		},
+		{	"id":4,
+			"title":"Pooling"
+		},
+		{	"id":5,
+			"title":"Normalization"
+		}
+	]
+}

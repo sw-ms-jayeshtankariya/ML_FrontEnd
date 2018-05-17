@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-configure-project',
@@ -9,7 +10,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ConfigureProjectComponent implements OnInit {
   @ViewChild('projectconfig') private myStepper: MatStepper;
-  constructor(private _router: Router, private route: ActivatedRoute) {
+  dataConnection: FormGroup;
+  constructor(private _fb: FormBuilder, private _router: Router, private route: ActivatedRoute) {
+    this.dataConnection = _fb.group({
+      ftp : _fb.group(this.initFTPConnection())
+    });
   }
 
   ngOnInit() {
@@ -22,6 +27,19 @@ export class ConfigureProjectComponent implements OnInit {
       this._url = this._router.url;
     }
     return this._url;
+  }
+
+  initFTPConnection() {
+    const model = {
+      connectionName: ['', Validators.required],
+      dataSource: ['', Validators.required],
+      host: ['', Validators.required],
+      port: ['', Validators.required],
+      userName: ['', Validators.required],
+      passWord: ['', Validators.required],
+      file: ['', Validators.required]
+    };
+    return model;
   }
 
   moveNext() {

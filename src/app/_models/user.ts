@@ -1,29 +1,31 @@
-export class User{
-    id:number;
-    firstName:string;
-    lastName:string;  
-    email:string;
-    contactNo:string;
-    role:UserRoles;
-    status:UserStatus;
+export class User {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    contactNo: string;
+    role: UserRoles;
+    status: UserStatus;
+    username: string;
+    password: string;
 
-    constructor(){
-        this.id=0;
-        this.firstName='';
-        this.lastName='';
-        this.email='';
-        this.contactNo='';
-        this.role=UserRoles.DATA_SCIENTIST;
-        this.status=UserStatus.ACTIVE;
+    constructor() {
+        this.id = 0;
+        this.firstName = '';
+        this.lastName = '';
+        this.email = '';
+        this.contactNo = '';
+        this.role = UserRoles.DATA_SCIENTIST;
+        this.status = UserStatus.ACTIVE;
     }
 }
 
-export enum UserRoles{
+export enum UserRoles {
     DATA_SCIENTIST = 'Data Scientist',
-    EMPLOYEE = "Employee"
+    EMPLOYEE = 'Employee'
 }
 
-export enum UserStatus{
+export enum UserStatus {
     ACTIVE = 'Active',
-    INACTIVE = "Inactive"
+    INACTIVE = 'Inactive'
 }

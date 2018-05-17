@@ -1,5 +1,4 @@
-export class SelectListItem
-{
-    key:string
-    value:string
+export class SelectListItem {
+    key: string;
+    value: string;
 }
