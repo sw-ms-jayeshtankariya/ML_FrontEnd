@@ -1,3 +1,112 @@
-<p>
-  modeldesign works!
-</p>
+<div class="row">
+    <div class="col-md-3">
+        <div id="accordion" class="accordion-one" role="tablist" aria-multiselectable="true">
+            <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
+                        class="tx-gray-800 transition collapsed">
+                        Input / Output Layers
+                    </a>
+                </div>
+                <!-- card-header -->
+
+                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" style="">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.INPUT" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Input Layer</strong>
+                                </p>
+                            </li>
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.OUTPUT" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Output Layer</strong>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                    <a class="collapsed tx-gray-800 transition" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Core Layers
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Activation</strong>
+                                </p>
+                            </li>
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Activity Regularization</strong>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="headingThree">
+                    <a class="collapsed tx-gray-800 transition" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                        Convolutional Layers
+                    </a>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Convolutional1D</strong>
+                                </p>
+                            </li>
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">Convolutional2D</strong>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- collapse -->
+            </div>
+            <!-- card -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingFour">
+                    <a class="collapsed tx-gray-800 transition" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                        Pooling Layers
+                    </a>
+                </div>
+                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">AvgPolling1D</strong>
+                                </p>
+                            </li>
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                                <p class="mg-b-0">
+                                    <strong class="tx-inverse tx-medium">AvgPooling2D</strong>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- collapse -->
+            </div>
+            <!-- card -->
+        </div>
+    </div>
+    <div class="col-md-9">
+        <d3ne></d3ne>
+        <div  droppable  (onDrop)="onItemDrop($event)" [ngClass]="{'dropshadow': true, 'hide': hideDropLayer}"><h2>Drop Layer Here</h2></div>
+    </div>
+</div>

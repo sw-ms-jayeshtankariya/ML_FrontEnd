@@ -1,3 +1,117 @@
-<p>
-  ftpconfig works!
-</p>
+<form [formGroup]="dataConnection" (ngSubmit)="dataConnection.valid" novalidate>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">Connection Name:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="connectionname" formControlName="connectionName" class="form-control" name="firstname" placeholder="Enter connection name"
+                    type="text" required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.connectionName.dirty || dataConnection.controls.ftp.controls.connectionName.touched) &&  !dataConnection.controls.ftp.controls.connectionName.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">DataSource:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="datasource" class="form-control" name="lastname" placeholder="Enter datasource" formControlName="dataSource" type="text"
+                    required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.dataSource.dirty || dataConnection.controls.ftp.controls.dataSource.touched) &&  !dataConnection.controls.ftp.controls.dataSource.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">Host Address:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="host" class="form-control" name="lastname" placeholder="Enter Host Address" formControlName="host" type="text"
+                    required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.host.dirty || dataConnection.controls.ftp.controls.host.touched) &&  !dataConnection.controls.ftp.controls.host.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">Port No:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="port" class="form-control" name="lastname" placeholder="Enter Port No" formControlName="port" type="text" required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.port.dirty || dataConnection.controls.ftp.controls.port.touched) &&  !dataConnection.controls.ftp.controls.port.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">User Name:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="username" class="form-control" name="lastname" formControlName="userName" placeholder="Enter Username" type="text"
+                    required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.userName.dirty || dataConnection.controls.ftp.controls.userName.touched) &&  !dataConnection.controls.ftp.controls.userName.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="ftp">
+                <label class="form-control-label">Password:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="password" class="form-control" name="lastname" formControlName="passWord" placeholder="Enter Password" type="password"
+                    required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.passWord.dirty || dataConnection.controls.ftp.controls.passWord.touched) &&  !dataConnection.controls.ftp.controls.passWord.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div [ngClass]="{'form-group':true,'has-error':false}" formGroupName="ftp">
+                <label class="form-control-label">File Path:
+                    <span class="tx-danger">*</span>
+                </label>
+                <input id="filepath" [ngClass]="{'form-control':true}" formControlName="file" placeholder="Select File" type="file" required>
+                <small *ngIf="(dataConnection.controls.ftp.controls.file.dirty || dataConnection.controls.ftp.controls.file.touched) &&  !dataConnection.controls.ftp.controls.file.valid"
+                    class="text-danger">
+                    Required.
+                </small>
+            </div>
+            <!-- form-group -->
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-outline-primary btn-block mg-b-10">Test Connection</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" (click)="saveDataPreparation()" class="btn btn-outline-primary active btn-block mg-b-10">Save</button>
+        </div>
+    </div>
+</form>

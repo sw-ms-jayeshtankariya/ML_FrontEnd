@@ -22,6 +22,8 @@ import { ModeldesignComponent } from './configure-project/modeldesign/modeldesig
 import { HyperparamComponent } from './configure-project/hyperparam/hyperparam.component';
 import { TrainingComponent } from './configure-project/training/training.component';
 import { ResultsComponent } from './configure-project/results/results.component';
+import { D3NEComponent } from '../d3ne/d3ne.component';
+import { NgDragDropModule } from 'ng-drag-drop';
 const routes: Routes = [
   {
     path: 'dl', component: DLComponent, children: [
@@ -92,7 +94,8 @@ const routes: Routes = [
     ModeldesignComponent,
     HyperparamComponent,
     TrainingComponent,
-    ResultsComponent
+    ResultsComponent,
+    D3NEComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +115,8 @@ const routes: Routes = [
     MatSelectModule,
     MatSnackBarModule,
     MatSliderModule,
-    SharedModule
+    SharedModule,
+    NgDragDropModule.forRoot()
   ],
   providers: []
 })

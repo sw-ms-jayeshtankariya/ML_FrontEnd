@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-configure-project',
@@ -10,11 +9,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class ConfigureProjectComponent implements OnInit {
   @ViewChild('projectconfig') private myStepper: MatStepper;
-  dataConnection: FormGroup;
-  constructor(private _fb: FormBuilder, private _router: Router, private route: ActivatedRoute) {
-    this.dataConnection = _fb.group({
-      ftp : _fb.group(this.initFTPConnection())
-    });
+
+  constructor( private _router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -29,19 +25,6 @@ export class ConfigureProjectComponent implements OnInit {
     return this._url;
   }
 
-  initFTPConnection() {
-    const model = {
-      connectionName: ['', Validators.required],
-      dataSource: ['', Validators.required],
-      host: ['', Validators.required],
-      port: ['', Validators.required],
-      userName: ['', Validators.required],
-      passWord: ['', Validators.required],
-      file: ['', Validators.required]
-    };
-    return model;
-  }
-
   moveNext() {
     switch (this.myStepper.selectedIndex) {
       case 0:
@@ -50,27 +33,27 @@ export class ConfigureProjectComponent implements OnInit {
         }
         break;
       case 1:
-        if (this.route.children.filter(function (item) { return item.outlet === 'ftpconfig'; }).length === 0) {
+        if (this.route.children.filter(function (item) { return item.outlet === 'datareview'; }).length === 0) {
           this._router.navigate([this.URL, { outlets: { 'datareview': ['data-review'] } }]);
         }
         break;
       case 2:
-        if (this.route.children.filter(function (item) { return item.outlet === 'ftpconfig'; }).length === 0) {
+        if (this.route.children.filter(function (item) { return item.outlet === 'modeldesign'; }).length === 0) {
           this._router.navigate([this.URL, { outlets: { 'modeldesign': ['model-design'] } }]);
         }
         break;
       case 3:
-        if (this.route.children.filter(function (item) { return item.outlet === 'ftpconfig'; }).length === 0) {
+        if (this.route.children.filter(function (item) { return item.outlet === 'hyperparam'; }).length === 0) {
           this._router.navigate([this.URL, { outlets: { 'hyperparam': ['hyper-param'] } }]);
         }
         break;
       case 4:
-        if (this.route.children.filter(function (item) { return item.outlet === 'ftpconfig'; }).length === 0) {
+        if (this.route.children.filter(function (item) { return item.outlet === 'training'; }).length === 0) {
           this._router.navigate([this.URL, { outlets: { 'training': ['ting'] } }]);
         }
         break;
       case 5:
-        if (this.route.children.filter(function (item) { return item.outlet === 'ftpconfig'; }).length === 0) {
+        if (this.route.children.filter(function (item) { return item.outlet === 'results'; }).length === 0) {
           this._router.navigate([this.URL, { outlets: { 'results': ['rsults'] } }]);
         }
         break;
