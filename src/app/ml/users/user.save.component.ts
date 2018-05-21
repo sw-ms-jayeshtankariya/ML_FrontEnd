@@ -1,11 +1,11 @@
-import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { User, UserRoles } from "../../_models/user";
-import { Http, Response } from "@angular/http";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { SelectListItem } from "../../_models/SelectListItem";
-import { debug } from "util";
-import { Title } from "@angular/platform-browser";
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User, UserRoles } from '../../_models/user';
+import { Http, Response } from '@angular/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SelectListItem } from '../../_models/SelectListItem';
+import { debug } from 'util';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './user.save.component.html'
@@ -22,20 +22,20 @@ export class SaveUserComponent implements OnInit {
         this.titleService.setTitle(newTitle);
     }
 
-    constructor(private route: ActivatedRoute, private http: Http, 
-        private _fb: FormBuilder,private titleService: Title) {
-        let self = this;
+    constructor(private route: ActivatedRoute, private http: Http,
+        private _fb: FormBuilder, private titleService: Title) {
+        const self = this;
         this.options = [];
-        var opts = Object.keys(this.userRoles);
+        const opts = Object.keys(this.userRoles);
         opts.forEach(function (item) {
             self.options.push({ key: item, value: UserRoles[item] });
         });
         this.route.params.subscribe(params => {
-            this._id = params["id"];
+            this._id = params['id'];
             if (this._id > 0) {
                 this.http.get('assets/data/userData.json')
                     .toPromise().then(users => {
-                        self.user = users.json().filter(function (item) { return item.id == self._id })[0];
+                        self.user = users.json().filter(function (item) { return item.id === self._id; })[0];
                         this.userForm = _fb.group({
                             id: _fb.control(self.user.id, Validators.required),
                             firstName: _fb.control(self.user.firstName, Validators.required),
@@ -44,13 +44,12 @@ export class SaveUserComponent implements OnInit {
                             contactNo: _fb.control(self.user.contactNo, Validators.required),
                             role: _fb.control(self.user.role, Validators.required)
                         });
-                    })
-            }
-            else {
-                alert("id does not found");
+                    });
+            } else {
+                alert('id does not found');
             }
         });
-        this.setTitle("Add / Edit User");
+        this.setTitle('Add / Edit User');
     }
 
     parseValue(value: string) {
@@ -66,7 +65,7 @@ export class SaveUserComponent implements OnInit {
 
     }
 
-    saveUserInfo(){
-        
+    saveUserInfo() {
+
     }
 }

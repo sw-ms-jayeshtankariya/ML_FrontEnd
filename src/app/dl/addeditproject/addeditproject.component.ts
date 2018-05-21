@@ -7,6 +7,7 @@ import { Project } from '../../_models/project';
 import { Http } from '@angular/http';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'dl-addeditproject',
   template: ''
 })
@@ -29,13 +30,13 @@ export class AddEditProjectComponent implements OnInit {
   };
   constructor(public dialog: MatDialog, @Inject(DOCUMENT) private doc: any,
     private route: ActivatedRoute, private router: Router, private http: Http) {
-    let self = this;
+    const self = this;
     this.route.params.subscribe(params => {
-      this._id = params["id"];
+      this._id = params['id'];
       if (this._id > 0) {
         this.http.get('assets/data/projectData.json')
           .toPromise().then(projects => {
-            self.project = projects.json().filter(function (item) { return item.id == self._id })[0];
+            self.project = projects.json().filter(function (item) { return item.id === self._id; })[0];
             this.config.data = self.project;
             dialog.afterOpen.subscribe(() => {
               if (!doc.body.classList.contains('no-scroll')) {
@@ -43,10 +44,9 @@ export class AddEditProjectComponent implements OnInit {
               }
             });
             this.openModal();
-          })
-      }
-      else {
-        alert("id does not found");
+          });
+      } else {
+        alert('id does not found');
       }
     });
   }

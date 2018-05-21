@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Model } from '../../_models/model';
+// tslint:disable-next-line:import-blacklist
 import { Subject } from 'rxjs';
 import { Http, Response } from '@angular/http';
 import { Title } from '@angular/platform-browser';
@@ -9,9 +10,10 @@ import { fadeInAnimation } from '../../_animations/fade-in.animation';
   templateUrl: './models.component.html',
   styleUrls: ['./models.component.css'],
   animations: [fadeInAnimation],
+  // tslint:disable-next-line:use-host-property-decorator
   host: { '[@fadeInAnimation]': ''}
 })
-export class ModelsComponent {
+export class ModelsComponent implements OnInit {
   models: Model[] = [];
   title = 'app';
   @ViewChild('tblModels')
@@ -23,7 +25,7 @@ export class ModelsComponent {
     this.titleService.setTitle(newTitle);
   }
   constructor(private http: Http, private titleService: Title) {
-    this.setTitle("Models")
+    this.setTitle('Models');
   }
 
   ngOnInit(): void {

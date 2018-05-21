@@ -1,5 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+// tslint:disable-next-line:import-blacklist
 import { Subject } from 'rxjs';
+// tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 import { Http, Response } from '@angular/http';
 import { User } from '../../_models/user';
@@ -20,7 +22,7 @@ export class UsersComponent implements OnInit {
     dtTrigger: Subject<any> = new Subject();
 
     constructor(private http: Http, private router: Router, private titleService: Title) {
-        this.setTitle("User List");
+        this.setTitle('User List');
     }
     public setTitle(newTitle: string) {
         this.titleService.setTitle(newTitle);
@@ -44,6 +46,6 @@ export class UsersComponent implements OnInit {
     }
 
     editUser(id: number) {
-        this.router.navigateByUrl("/ml/user/" + id);
+        this.router.navigateByUrl('/ml/user/' + id);
     }
 }

@@ -1,5 +1,5 @@
-import { MatSnackBar, MatSnackBarConfig } from "@angular/material";
-import { Component, Injectable } from "@angular/core";
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { Component, Injectable } from '@angular/core';
 @Injectable()
 export class SSnackBar {
     constructor(public snackBar: MatSnackBar) {

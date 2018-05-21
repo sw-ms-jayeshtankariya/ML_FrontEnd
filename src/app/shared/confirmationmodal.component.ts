@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject,EventEmitter } from "@angular/core";
-import { Router } from "@angular/router";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
     template: `
@@ -17,23 +17,20 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
   <button (click)="onCancelClick()" class="btn btn-outline-danger">No</button>
 </div>
     `
-  })
-  
-  export class ConfirmationModalComponent {
-  
-    constructor(private router: Router,public dialogRef: MatDialogRef<ConfirmationModalComponent>,
+})
+export class ConfirmationModalComponent {
+    constructor(private router: Router, public dialogRef: MatDialogRef<ConfirmationModalComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any) {
 
-        }
-  
-    onCancelClick():void{
-        this.dialogRef.close();
     }
-
     onYes = new EventEmitter();
 
-    onYesClick(){
+    onCancelClick(): void {
         this.dialogRef.close();
-        this.onYes.emit("");
     }
-  }
+
+    onYesClick() {
+        this.dialogRef.close();
+        this.onYes.emit('');
+    }
+}

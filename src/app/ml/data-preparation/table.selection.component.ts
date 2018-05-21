@@ -1,10 +1,12 @@
-import { Component, Inject, ViewChild,EventEmitter } from "@angular/core";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { Title } from "@angular/platform-browser";
-import { Http } from "@angular/http";
-import { Subject } from "rxjs";
-import { SSnackBar } from "../../_matProviders/mat.snack";
+import { Component, Inject, ViewChild, EventEmitter } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Title } from '@angular/platform-browser';
+import { Http } from '@angular/http';
+// tslint:disable-next-line:import-blacklist
+import { Subject } from 'rxjs';
+import { SSnackBar } from '../../_matProviders/mat.snack';
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'tableselection',
     templateUrl: 'table.selection.component.html',
 })
@@ -23,24 +25,23 @@ export class TableSelectionComponent {
     constructor(
         public dialogRef: MatDialogRef<TableSelectionComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any, private titleService: Title,
-        private http: Http, private snack:SSnackBar) {
-        this.setTitle("Select Table")
-        this.selectedTable = "";
+        private http: Http, private snack: SSnackBar) {
+        this.setTitle('Select Table');
+        this.selectedTable = '';
         this.dtOptions = {
             pageLength: 5,
-            autoWidth:false
-          };
+            autoWidth: false
+        };
     }
 
-    onCancelClick():void{
+    onCancelClick(): void {
         this.dialogRef.close();
     }
 
     onOKClick(): void {
-        if (this.selectedTable == "") {
-            this.openSnackBar("Please select atleast one table.", "")
-        }
-        else {
+        if (this.selectedTable === '') {
+            this.openSnackBar('Please select atleast one table.', '');
+        } else {
             this.onAdd.emit(this.selectedTable);
             this.dialogRef.close();
         }

@@ -9,7 +9,7 @@ import { LocalStorageService } from '../_services/localstorageservice.component'
 const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },
-  { path: 'logout',component:LogoutComponent} 
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({

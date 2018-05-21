@@ -9,7 +9,7 @@ import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 export class NotificationsComponent {
     title = 'app';
     constructor(private titleService: Title) {
-        this.setTitle("Notifications");
+        this.setTitle('Notifications');
     }
     public setTitle(newTitle: string) {
         this.titleService.setTitle(newTitle);

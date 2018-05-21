@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'login',
   templateUrl: './forgetpassword.component.html',
   styleUrls: ['./forgetpassword.component.css']
@@ -13,8 +14,8 @@ export class ForgetPasswordComponent implements OnInit {
 
   }
 
-  constructor(private titleService: Title,private _router:Router) {
-    this.setTitle("Forget Password");
+  constructor(private titleService: Title, private _router: Router) {
+    this.setTitle('Forget Password');
   }
 
   public setTitle(newTitle: string) {
@@ -23,6 +24,6 @@ export class ForgetPasswordComponent implements OnInit {
 
   doForgetPassword(e: Event) {
     e.preventDefault();
-    this._router.navigateByUrl("/signin");
+    this._router.navigateByUrl('/signin');
   }
 }

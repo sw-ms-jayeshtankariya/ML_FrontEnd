@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { slideInOutAnimation } from '../../_animations/slide-in-out.animations';
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'choose-module',
     templateUrl: './choose.module.html',
     styleUrls: ['./choose.module.css']
@@ -13,7 +14,7 @@ export class ChooseModuleComponent implements OnInit {
 
     }
     constructor(private titleService: Title, private _router: Router) {
-        this.setTitle("Choose Functions");
+        this.setTitle('Choose Functions');
     }
 
     public setTitle(newTitle: string) {
@@ -22,10 +23,9 @@ export class ChooseModuleComponent implements OnInit {
 
     chooseModule(tag: string) {
         if (tag === 'dl') {
-            this._router.navigateByUrl("/dl/myprojects");
-        }
-        else {
-            this._router.navigateByUrl("/ml/datapreparation");
+            this._router.navigateByUrl('/dl/myprojects');
+        } else {
+            this._router.navigateByUrl('/ml/datapreparation');
         }
     }
 }
