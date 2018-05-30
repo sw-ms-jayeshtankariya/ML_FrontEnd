@@ -1,13 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyProjectsComponent } from './myprojects/myprojects.component';
 import { DLComponent } from './dl.component';
 import {
-  MatTabsModule, MatSidenavModule, MatCheckboxModule, MatDialogModule,
+  MatTabsModule, MatSidenavModule, MatCheckboxModule,
   MatFormFieldModule, MatButtonModule, MatCard, MatCardModule, MatStepperModule,
-  MatToolbarModule, MatSelectModule, MatSnackBarModule, MatSliderModule
+  MatToolbarModule, MatSelectModule, MatSnackBarModule, MatSliderModule, GestureConfig
 } from '@angular/material';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BreadcrumbComponent } from '../shared/breadcrumb.component';
 import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from '../shared/settings/settings.component';
@@ -24,62 +24,11 @@ import { TrainingComponent } from './configure-project/training/training.compone
 import { ResultsComponent } from './configure-project/results/results.component';
 import { D3NEComponent } from '../d3ne/d3ne.component';
 import { NgDragDropModule } from 'ng-drag-drop';
-const routes: Routes = [
-  {
-    path: 'dl', component: DLComponent, children: [
-      {
-        path: 'myprojects', component: MyProjectsComponent, data: {
-          breadcrumb: 'My Projects'
-        }, children: [{
-          path: 'save/:id', component: AddEditProjectComponent, data: {
-            breadcrumb: 'Save Project'
-          }
-        }]
-      },
-      {
-        path: 'configure-project/:id', component: ConfigureProjectComponent, data: {
-          breadcrumb: 'Configure Project'
-        }, children: [
-        {
-          path: 'ftp-config', component: FtpconfigComponent, data: {
-            breadcrumb: 'FTP Configuration'
-          }, outlet: 'ftpconfig'
-        },
-        {
-          path: 'data-review', component: DatareviewComponent, data: {
-            breadcrumb: 'Review FTP Data'
-          }, outlet: 'datareview'
-        },
-        {
-          path: 'model-design', component: ModeldesignComponent, data: {
-            breadcrumb: 'Design Model'
-          }, outlet: 'modeldesign'
-        },
-        {
-          path: 'hyper-param', component: HyperparamComponent, data: {
-            breadcrumb: 'Hyper Parameters'
-          }, outlet: 'hyperparam'
-        },
-        {
-          path: 'ting', component: TrainingComponent, data: {
-            breadcrumb: 'Training'
-          }, outlet: 'training'
-        },
-        {
-          path: 'rsults', component: ResultsComponent, data: {
-            breadcrumb: 'Results'
-          }, outlet: 'results'
-        }
-      ]
-      },
-      {
-        path: 'settings', component: SettingsComponent, data: {
-          breadcrumb: 'Settings'
-        }
-      }
-    ]
-  }
-];
+import { CommonModule } from '@angular/common';
+import { DLRoutingModule } from './dl.routing.module';
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 @NgModule({
   entryComponents: [AddeditprojectdialogComponent],
@@ -98,8 +47,9 @@ const routes: Routes = [
     D3NEComponent
   ],
   imports: [
-    BrowserModule,
-    RouterModule.forChild(routes),
+    CommonModule,
+    HttpModule,
+    DLRoutingModule,
     DataTablesModule,
     FormsModule,
     ReactiveFormsModule,
@@ -118,6 +68,10 @@ const routes: Routes = [
     SharedModule,
     NgDragDropModule.forRoot()
   ],
-  providers: []
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: []},
+    {  provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig  }
+  ]
 })
 export class DLModule { }

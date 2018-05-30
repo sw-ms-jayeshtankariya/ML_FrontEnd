@@ -13,7 +13,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 export class AddeditprojectdialogComponent implements OnInit {
   projectForm: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AddeditprojectdialogComponent>, private _fb: FormBuilder, @Inject(MAT_DIALOG_DATA) data) {
+  constructor(public dialogRef: MatDialogRef<AddeditprojectdialogComponent>,
+    private _fb: FormBuilder, @Inject(MAT_DIALOG_DATA) data) {
     this.projectForm = _fb.group({
       id: _fb.control(data.id, Validators.required),
       name: _fb.control(data.name, Validators.required),

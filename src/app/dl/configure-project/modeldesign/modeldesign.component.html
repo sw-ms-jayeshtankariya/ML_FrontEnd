@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-3">
-        <div id="accordion" class="accordion-one" role="tablist" aria-multiselectable="true">
+        <div id="accordion" class="accordion-two accordion-two-primary" role="tablist" aria-multiselectable="true">
             <div class="card">
                 <div class="card-header" role="tab" id="headingOne">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
@@ -18,7 +18,7 @@
                                     <strong class="tx-inverse tx-medium">Input Layer</strong>
                                 </p>
                             </li>
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.OUTPUT" draggable class="list-group-item">
+                            <li data-nodeTitle="Output" (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.OUTPUT" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Output Layer</strong>
                                 </p>
@@ -37,12 +37,12 @@
                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.ACTIVATION" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Activation</strong>
                                 </p>
                             </li>
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.ACTIVATION_REGULARIZATION" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Activity Regularization</strong>
                                 </p>
@@ -61,12 +61,12 @@
                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.CONVOLUTIONAL_1D" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Convolutional1D</strong>
                                 </p>
                             </li>
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.CONVOLUTIONAL_2D" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Convolutional2D</strong>
                                 </p>
@@ -87,12 +87,12 @@
                 <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.AVGPOLLING_1D" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">AvgPolling1D</strong>
                                 </p>
                             </li>
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.AVGPOLLING_2D" draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">AvgPooling2D</strong>
                                 </p>
@@ -106,7 +106,18 @@
         </div>
     </div>
     <div class="col-md-9">
-        <d3ne></d3ne>
-        <div  droppable  (onDrop)="onItemDrop($event)" [ngClass]="{'dropshadow': true, 'hide': hideDropLayer}"><h2>Drop Layer Here</h2></div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-slider min="0" max="1" value="0.7" (input)="onZoomChange($event)" step="0.1" tickInterval="6" thumbLabel></mat-slider>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <d3ne></d3ne>
+                <div droppable (onDrop)="onItemDrop($event)" [ngClass]="{'dropshadow': true, 'hide': hideDropLayer}">
+                    <h2>Drop Layer Here</h2>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

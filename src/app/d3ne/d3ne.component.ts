@@ -40,7 +40,7 @@ export class D3NEComponent implements AfterViewInit {
       }
     });
     this.numSocket = new D3NE.Socket('number', 'Number value', 'hint');
-    const outNode = new D3NE.Component('Number', {
+    const outNode = new D3NE.Component('Output', {
       builder(node) {
         const in1 = new D3NE.Input('', self.numSocket);
         return node.addInput(in1);
@@ -50,7 +50,7 @@ export class D3NEComponent implements AfterViewInit {
       }
     });
 
-    const inNode = new D3NE.Component('Number', {
+    const inNode = new D3NE.Component('Input', {
       builder(node) {
         const out = new D3NE.Output('', self.numSocket);
         return node.addOutput(out);
@@ -100,9 +100,9 @@ export class D3NEComponent implements AfterViewInit {
     const n2 = inNode.builder(inoutNode.newNode());
     const add = componentAdd.builder(componentAdd.newNode());
 
-    n1.position = [80, 200];
-    n2.position = [80, 400];
-    add.position = [500, 240];
+    // n1.position = [80, 200];
+    // n2.position = [80, 400];
+    // add.position = [500, 240];
 
 
     // this.editor.connect(n1.outputs[0], add.inputs[0]);
@@ -119,68 +119,100 @@ export class D3NEComponent implements AfterViewInit {
       await engine.abort();
       await engine.process(this.editor.toJSON());
     });
-
-    this.editor.view.zoomAt(this.editor.nodes);
+    this.editor.view.connectionProducer = (x1, y1, x2, y2) => {
+      return {
+        points: [[x1, y1 + 60], [x2, y2 + 60]]
+      };
+    };
+    this.editor.view.scale(0.7);
+    // this.editor.view.zoomAt(this.editor.nodes);
     this.editor.eventListener.trigger('change');
     this.editor.view.resize();
 
   }
 
-  addInputOnlyNode(x: number, y: number) {
+  addInputOnlyNode(title: string, x: number, y: number) {
     // tslint:disable-next-line:prefer-const
     let self = this;
-    const inNode = new D3NE.Component('Number', {
-      builder(node) {
-        const out = new D3NE.Output('', self.numSocket);
-        return node.addOutput(out);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
+    let existComp = this.editor.components.find(function (c) {
+      return c.name === title;
     });
-    const nn = inNode.newNode();
+
+    if (!existComp) {
+      existComp = new D3NE.Component(title, {
+        builder(node) {
+          const out = new D3NE.Output('', self.numSocket);
+          return node.addOutput(out);
+        },
+        worker(node, inputs, outputs) {
+          outputs[0] = node.data.num;
+        }
+      });
+      this.editor.components.push(existComp);
+    }
+    const nn = existComp.newNode();
     nn.data.num = 2;
-    const n1 = inNode.builder(nn);
+    const n1 = existComp.builder(nn);
     n1.position = [x - 500, y];
     this.editor.addNode(n1);
+    this.editor.view.resize();
   }
 
-  addOutputOnlyNode(x: number, y: number) {
+  addOutputOnlyNode(title: string, x: number, y: number) {
     // tslint:disable-next-line:prefer-const
     let self = this;
-    const outNode = new D3NE.Component('Number', {
-      builder(node) {
-        const in1 = new D3NE.Input('', self.numSocket);
-        return node.addInput(in1);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
+    let existComp = this.editor.components.find(function (c) {
+      return c.name === title;
     });
-    const nn = outNode.newNode();
+    if (!existComp) {
+      existComp = new D3NE.Component(title, {
+        builder(node) {
+          const in1 = new D3NE.Input('', self.numSocket);
+          return node.addInput(in1);
+        },
+        worker(node, inputs, outputs) {
+          outputs[0] = node.data.num;
+        }
+      });
+      this.editor.components.push(existComp);
+    }
+
+    const nn = existComp.newNode();
     nn.data.num = 2;
-    const n1 = outNode.builder(nn);
+    const n1 = existComp.builder(nn);
     n1.position = [x - 500, y];
     this.editor.addNode(nn);
+    this.editor.view.resize();
   }
 
-  addInputOutputNode(x: number, y: number) {
+  addInputOutputNode(title: string, x: number, y: number) {
     // tslint:disable-next-line:prefer-const
     let self = this;
-    const inoutNode = new D3NE.Component('Number', {
-      builder(node) {
-        const in1 = new D3NE.Input('', self.numSocket);
-        const out1 = new D3NE.Output('', self.numSocket);
-        return node.addInput(in1).addOutput(out1);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
+    let existComp = this.editor.components.find(function (c) {
+      return c.name === title;
     });
-    const nn = inoutNode.newNode();
+    if (!existComp) {
+      existComp = new D3NE.Component(title, {
+        builder(node) {
+          const in1 = new D3NE.Input('', self.numSocket);
+          const out1 = new D3NE.Output('', self.numSocket);
+          return node.addInput(in1).addOutput(out1);
+        },
+        worker(node, inputs, outputs) {
+          outputs[0] = node.data.num;
+        }
+      });
+      this.editor.components.push(existComp);
+    }
+    const nn = existComp.newNode();
     nn.data.num = 2;
-    const n1 = inoutNode.builder(nn);
+    const n1 = existComp.builder(nn);
     n1.position = [x - 500, y];
     this.editor.addNode(nn);
+    this.editor.view.resize();
+  }
+
+  zoomAt(level: number) {
+    this.editor.view.scale(level);
   }
 }

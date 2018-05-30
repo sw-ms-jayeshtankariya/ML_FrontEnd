@@ -27,6 +27,7 @@
         "assets/lib/rickshaw/css/rickshaw.min.css",
         "assets/lib/jquery.steps/css/jquery.steps.css",
         "assets/lib/select2/css/select2.min.css",
+        "assets/lib/Ionicons/css/ionicons.css",
         "assets/css/slim.css",
         "styles.css"
       ],

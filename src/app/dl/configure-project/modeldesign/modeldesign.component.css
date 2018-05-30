@@ -1,4 +1,4 @@
-.dropshadow{
+.dropshadow {
     border: 4px dashed black;
     position: absolute;
     top: 0;
@@ -13,6 +13,7 @@
     flex-direction: column;
 }
 
-.dropshadow.hide{
+.dropshadow.hide {
     display: none;
 }
+

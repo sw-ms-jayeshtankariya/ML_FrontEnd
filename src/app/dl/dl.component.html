@@ -1,7 +1,9 @@
 <div class="slim-header">
     <div class="container">
         <div class="slim-header-left">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="javascript:void()" id="btnMenuToggle">
+                <i class="fa fa-ellipsis-v fa-2x"></i>
+            </a>
             <h2 class="slim-logo">
                 <a href="/">
                     <img src="./assets/img/logo.png">
@@ -202,16 +204,16 @@
 <!-- slim-header -->
 <mat-sidenav-container class="example-container" id="menuSideNavContainer">
     <mat-sidenav id="menuSidenav" #sidenav mode="side" [(opened)]="opened">
-            <ul class="side-menu-list">
-                    <li>
-                      <a [routerLink]="['/dl/myprojects']">
-                        <span class="menu-icon menu-icon1"></span> My Projects</a>
-                    </li>
-                    <li>
-                      <a [routerLink]="['/dl/settings']">
-                        <span class="menu-icon menu-icon5"></span> Settings</a>
-                    </li>
-                  </ul>
+        <ul class="side-menu-list">
+            <li [ngClass]="{'active':selectedItem === this.id}" (click)="setSelected($event)" id="limyprojects">
+                <a [routerLink]="['/dl/myprojects']">
+                    <span class="menu-icon menu-icon1"></span> My Projects</a>
+            </li>
+            <li [ngClass]="{'active':selectedItem === this.id}" (click)="setSelected($event)" id="lisettings">
+                <a [routerLink]="['/dl/settings']">
+                    <span class="menu-icon menu-icon5"></span> Settings</a>
+            </li>
+        </ul>
     </mat-sidenav>
 
     <mat-sidenav-content>

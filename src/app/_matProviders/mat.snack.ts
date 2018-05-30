@@ -3,7 +3,7 @@ import { Component, Injectable } from '@angular/core';
 @Injectable()
 export class SSnackBar {
     constructor(public snackBar: MatSnackBar) {
-
+        console.log('test');
     }
 
     openInTopRightCorner(message: string, action: string, config: MatSnackBarConfig) {
