@@ -5,7 +5,7 @@ import { DLComponent } from './dl.component';
 import {
   MatTabsModule, MatSidenavModule, MatCheckboxModule,
   MatFormFieldModule, MatButtonModule, MatCard, MatCardModule, MatStepperModule,
-  MatToolbarModule, MatSelectModule, MatSnackBarModule, MatSliderModule, GestureConfig
+  MatToolbarModule, MatSelectModule, MatSnackBarModule, MatSliderModule, GestureConfig, MatInputModule
 } from '@angular/material';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BreadcrumbComponent } from '../shared/breadcrumb.component';
@@ -65,6 +65,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     MatSelectModule,
     MatSnackBarModule,
     MatSliderModule,
+    MatInputModule,
     SharedModule,
     NgDragDropModule.forRoot()
   ],

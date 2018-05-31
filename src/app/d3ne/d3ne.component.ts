@@ -1,7 +1,7 @@
 import {
   Component, AfterViewInit,
   OnChanges, ViewChild,
-  ElementRef, Input, ViewEncapsulation
+  ElementRef, Input, ViewEncapsulation, Output, EventEmitter
 } from '@angular/core';
 
 import * as D3NE from 'd3-node-editor';
@@ -18,6 +18,9 @@ import { InputControl } from './input-control';
 
 export class D3NEComponent implements AfterViewInit {
 
+  @Output()
+  newNodeAdded: EventEmitter<D3NE.Node> = new EventEmitter<D3NE.Node>();
+
   @ViewChild('d3neEditor') el: ElementRef;
   editor = null;
 
@@ -26,79 +29,72 @@ export class D3NEComponent implements AfterViewInit {
   numSocket = null;
   ngAfterViewInit() {
     const self = this;
-    const inoutNode = new D3NE.Component('Number', {
-      builder(node) {
-        this.numSocket = new D3NE.Socket('number', 'Number value', 'hint');
-        const _out = new D3NE.Output('', self.numSocket);
-        const _in = new D3NE.Input('', self.numSocket);
-        const numControl = new InputControl(() => self.editor);
+    // const inoutNode = new D3NE.Component('Number', {
+    //   builder(node) {
+    //     this.numSocket = new D3NE.Socket('number', 'Number value', 'hint');
+    //     const _out = new D3NE.Output('', self.numSocket);
+    //     const _in = new D3NE.Input('', self.numSocket);
+    //     const numControl = new InputControl(() => self.editor);
 
-        return node.addInput(_in).addOutput(_out);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
-    });
+    //     return node.addInput(_in).addOutput(_out);
+    //   },
+    //   worker(node, inputs, outputs) {
+    //     outputs[0] = node.data.num;
+    //   }
+    // });
     this.numSocket = new D3NE.Socket('number', 'Number value', 'hint');
-    const outNode = new D3NE.Component('Output', {
-      builder(node) {
-        const in1 = new D3NE.Input('', self.numSocket);
-        return node.addInput(in1);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
-    });
+    // const outNode = new D3NE.Component('Output', {
+    //   builder(node) {
+    //     const in1 = new D3NE.Input('', self.numSocket);
+    //     return node.addInput(in1);
+    //   },
+    //   worker(node, inputs, outputs) {
+    //     outputs[0] = node.data.num;
+    //   }
+    // });
 
-    const inNode = new D3NE.Component('Input', {
-      builder(node) {
-        const out = new D3NE.Output('', self.numSocket);
-        return node.addOutput(out);
-      },
-      worker(node, inputs, outputs) {
-        outputs[0] = node.data.num;
-      }
-    });
+    // const inNode = new D3NE.Component('Input', {
+    //   builder(node) {
+    //     const out = new D3NE.Output('', self.numSocket);
+    //     return node.addOutput(out);
+    //   },
+    //   worker(node, inputs, outputs) {
+    //     outputs[0] = node.data.num;
+    //   }
+    // });
 
-    const componentAdd = new D3NE.Component('Add', {
-      builder(node) {
-        const inp1 = new D3NE.Input('', self.numSocket);
-        const inp2 = new D3NE.Input('', self.numSocket);
-        const out = new D3NE.Output('', self.numSocket);
-        return node
-          .addInput(inp1)
-          .addInput(inp2)
-          // .addControl(numControl)
-          .addOutput(out);
-      },
-      worker(node, inputs, outputs) {
-        const sum = inputs[0][0] + inputs[1][0];
-        const numControl: NumberControl = self.editor.nodes.find(n => n.id === node.id).controls[0];
-        numControl.setValue(sum);
-        outputs[0] = sum;
-      }
-    });
+    // const componentAdd = new D3NE.Component('Add', {
+    //   builder(node) {
+    //     const inp1 = new D3NE.Input('', self.numSocket);
+    //     const inp2 = new D3NE.Input('', self.numSocket);
+    //     const out = new D3NE.Output('', self.numSocket);
+    //     return node
+    //       .addInput(inp1)
+    //       .addInput(inp2)
+    //       // .addControl(numControl)
+    //       .addOutput(out);
+    //   },
+    //   worker(node, inputs, outputs) {
+    //     const sum = inputs[0][0] + inputs[1][0];
+    //     const numControl: NumberControl = self.editor.nodes.find(n => n.id === node.id).controls[0];
+    //     numControl.setValue(sum);
+    //     outputs[0] = sum;
+    //   }
+    // });
 
     const menu = new D3NE.ContextMenu({
-      Values: {
-        Value: inoutNode,
-        Action: function () {
-          alert('ok');
-        }
-      },
-      Add: componentAdd
-    });
+    }, false);
 
     const container = this.el.nativeElement;
 
-    const components = [inoutNode, componentAdd];
-    this.editor = new D3NE.NodeEditor('demo@0.1.0', container, components, menu);
+    // const components = [inoutNode, componentAdd];
+    this.editor = new D3NE.NodeEditor('demo@0.1.0', container, [], menu);
 
-    const nn = inoutNode.newNode();
-    nn.data.num = 2;
-    const n1 = inNode.builder(nn);
-    const n2 = inNode.builder(inoutNode.newNode());
-    const add = componentAdd.builder(componentAdd.newNode());
+    // const nn = inoutNode.newNode();
+    // nn.data.num = 2;
+    // const n1 = inNode.builder(nn);
+    // const n2 = inNode.builder(inoutNode.newNode());
+    // const add = componentAdd.builder(componentAdd.newNode());
 
     // n1.position = [80, 200];
     // n2.position = [80, 400];
@@ -113,12 +109,15 @@ export class D3NEComponent implements AfterViewInit {
     // this.editor.addNode(add);
     //  this.editor.selectN ode(tnode);
 
-    const engine = new D3NE.Engine('demo@0.1.0', components);
-
+    const engine = new D3NE.Engine('demo@0.1.0', []);
+    this.editor.eventListener.on('nodeselect', (node, persistent) => {
+      self.newNodeAdded.emit(node);
+    });
     this.editor.eventListener.on('change', async () => {
       await engine.abort();
       await engine.process(this.editor.toJSON());
     });
+
     this.editor.view.connectionProducer = (x1, y1, x2, y2) => {
       return {
         points: [[x1, y1 + 60], [x2, y2 + 60]]
@@ -146,6 +145,7 @@ export class D3NEComponent implements AfterViewInit {
         },
         worker(node, inputs, outputs) {
           outputs[0] = node.data.num;
+          console.log('test');
         }
       });
       this.editor.components.push(existComp);

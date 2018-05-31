@@ -91,6 +91,7 @@
   box-sizing: content-box;
   position: absolute;
   user-select: none;
+  transition: all 0.4s;
 }
 
 .node-editor .node .title {
@@ -261,6 +262,33 @@
     background-color: #1b84e7;
 }
 .node:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+.node.selected:before, .node.selected:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:inset 0 0 10px 0px rgb(10, 10, 10);
+    -moz-box-shadow:inset 0 0 10px 0px rgb(10, 10, 10);
+    box-shadow:inset 0 0 10px 0px rgb(10, 10, 10);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+    background-color: #1b84e7;
+}
+.node.selected:after
 {
     right:10px;
     left:auto;

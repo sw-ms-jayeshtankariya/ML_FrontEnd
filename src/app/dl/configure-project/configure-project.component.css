@@ -9,6 +9,8 @@
 ::ng-deep .mat-slider-thumb-label {
     transform: rotate(45deg) !important;
     border-radius: 50% 50% 0 !important;
+    width: 25px;
+    height: 25px;
   }
   
   ::ng-deep   .mat-slider-thumb {
@@ -18,4 +20,9 @@
   ::ng-deep   .mat-slider-thumb-label-text {
     opacity: 1 !important;
     color: white !important;
+}
+
+::ng-deep .mat-slider-horizontal .mat-slider-thumb-label {
+    right: -13px;
+    top: -32px;
 }

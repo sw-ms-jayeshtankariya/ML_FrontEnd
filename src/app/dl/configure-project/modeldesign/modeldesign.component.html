@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-3">
-        <div id="accordion" class="accordion-two accordion-two-primary" role="tablist" aria-multiselectable="true">
+        <div  [@myAnimation] *ngIf="!propWindow" id="accordion" class="accordion-two accordion-two-primary" role="tablist" aria-multiselectable="true">
             <div class="card">
                 <div class="card-header" role="tab" id="headingOne">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
@@ -18,7 +18,8 @@
                                     <strong class="tx-inverse tx-medium">Input Layer</strong>
                                 </p>
                             </li>
-                            <li data-nodeTitle="Output" (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.OUTPUT" draggable class="list-group-item">
+                            <li data-nodeTitle="Output" (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.OUTPUT"
+                                draggable class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Output Layer</strong>
                                 </p>
@@ -42,7 +43,8 @@
                                     <strong class="tx-inverse tx-medium">Activation</strong>
                                 </p>
                             </li>
-                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.ACTIVATION_REGULARIZATION" draggable class="list-group-item">
+                            <li (onDragStart)="dragStart($event)" (onDragEnd)="dragEnd($event)" [dragData]="LAYER_TYPES.ACTIVATION_REGULARIZATION" draggable
+                                class="list-group-item">
                                 <p class="mg-b-0">
                                     <strong class="tx-inverse tx-medium">Activity Regularization</strong>
                                 </p>
@@ -104,6 +106,28 @@
             </div>
             <!-- card -->
         </div>
+        <div id="propertyWidnow" *ngIf="propWindow" [@myAnimation]>
+            <div class="card bd-0">
+                <div class="card-header tx-medium bd-0 tx-white bg-primary">
+                    Properties
+                    <i (click)="closePropWindow()" style="cursor: pointer; float: right;padding-top: 3px;" class="fa fa-close"></i>
+                </div>
+                <!-- card-header -->
+                <div class="card-body bd bd-t-0">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Favorite food" value="Sushi">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Leave a comment"></textarea>
+                        </mat-form-field>
+                    </form>
+                </div>
+                <!-- card-body -->
+            </div>
+
+        </div>
     </div>
     <div class="col-md-9">
         <div class="row">
@@ -113,7 +137,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <d3ne></d3ne>
+                <d3ne (newNodeAdded)="nodeSelected($event)"></d3ne>
                 <div droppable (onDrop)="onItemDrop($event)" [ngClass]="{'dropshadow': true, 'hide': hideDropLayer}">
                     <h2>Drop Layer Here</h2>
                 </div>

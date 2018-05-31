@@ -2,82 +2,116 @@
     <mat-horizontal-stepper #projectconfig [linear]="true">
         <mat-step label="Basic Info">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form *ngIf="project" #pForm="ngForm" [formGroup]="projectForm" (ngSubmit)="projectForm.valid && saveProject(projectForm.value)"
+                        novalidate #pForm="ngForm">
+                        <!-- <pre>Content: <br>{{userForm.value | json}}</pre> -->
+                        <input type="hidden" formControlName="id">
+                        <div class="row-fluid">
+                            <div class="form-group col-md-12">
+                                <label class="form-control-label">Name:
+                                    <span class="tx-danger">*</span>
+                                </label>
+                                <input id="name" class="form-control" name="name" placeholder="Enter Project Name" formControlName="name" type="text" required>
+                                <small *ngIf="(projectForm.controls.name.dirty || projectForm.controls.name.touched) && !projectForm.controls.name.valid"
+                                    class="text-danger">
+                                    Required.
+                                </small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="form-control-label">Descsription:
+                                    <span class="tx-danger">*</span>
+                                </label>
+                                <textarea id="desc" class="form-control" name="desc" placeholder="Enter Description" formControlName="desc" rows="3"></textarea>
+                                <small *ngIf="(projectForm.controls.desc.dirty || projectForm.controls.desc.touched) && !projectForm.controls.desc.valid"
+                                    class="text-danger">
+                                    Required.
+                                </small>
+                            </div>
+                            <!-- form-group -->
+                        </div>
+                    </form>
                 </div>
             </div>
         </mat-step>
         <mat-step label="FTP Config">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-                </div>
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="ftpconfig"></router-outlet>
         </mat-step>
         <mat-step label="Data Preview">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-                </div>
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="datareview"></router-outlet>
         </mat-step>
         <mat-step label="Model Design">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-                </div>
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="modeldesign"></router-outlet>
         </mat-step>
         <mat-step label="Hyper Parameter">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-                </div>
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="hyperparam"></router-outlet>
         </mat-step>
         <mat-step label="Training">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
-                </div>
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-2">
-                    <button (click)="moveNext()" class="btn btn-sm btn-outline-primary btn-block mg-b-10">Next</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
+                    <button (click)="moveNext()" class="btn float-right btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-right"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="training"></router-outlet>
         </mat-step>
         <mat-step label="Results">
             <div class="row">
-                <div class="col-md-2">
-                    <button matStepperPrevious class="btn btn-sm btn-outline-primary btn-block mg-b-10">Previous</button>
+                <div class="col-md-12">
+                    <button matStepperPrevious class="btn float-left btn-xs btn-outline-primary">
+                        <span class="fa fa-arrow-left"></span>
+                    </button>
                 </div>
             </div>
             <router-outlet name="results"></router-outlet>

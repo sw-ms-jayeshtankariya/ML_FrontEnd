@@ -1,15 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, trigger, transition, style, animate } from '@angular/core';
 import { D3NEComponent } from '../../../d3ne/d3ne.component';
 import { DropEvent } from 'ng-drag-drop';
 import { MatSliderChange } from '@angular/material';
+import { Input } from 'd3-node-editor';
 @Component({
   selector: 'app-modeldesign',
   templateUrl: './modeldesign.component.html',
-  styleUrls: ['./modeldesign.component.css']
+  styleUrls: ['./modeldesign.component.css'],
+  animations: [
+    trigger(
+      'myAnimation',
+      [
+        transition(
+        ':enter', [
+          style({transform: 'translateY(100%)', opacity: 0}),
+          animate('300ms', style({transform: 'translateX(0)', 'opacity': 1}))
+        ]
+      ),
+      transition(
+        ':leave', [
+          // style({transform: 'translateX(0)', 'opacity': 1}),
+          // animate('500ms', style({transform: 'translateX(100%)', 'opacity': 0}))
+        ]
+      )]
+    )
+  ]
 })
 export class ModeldesignComponent implements OnInit {
   @ViewChild(D3NEComponent)
   private d3neComponent: D3NEComponent;
+  propWindow = false;
   hideDropLayer = true;
   zoomLevel = 1;
   public LAYER_TYPES = {
@@ -82,5 +102,14 @@ export class ModeldesignComponent implements OnInit {
       this.zoomLevel += 0.10;
       this.d3neComponent.zoomAt(this.zoomLevel);
     }
+  }
+
+  nodeSelected(e) {
+    console.log(e);
+    this.propWindow = true;
+  }
+
+  closePropWindow() {
+    this.propWindow = false;
   }
 }
